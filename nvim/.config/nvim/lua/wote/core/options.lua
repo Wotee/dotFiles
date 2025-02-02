@@ -37,3 +37,5 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+vim.cmd([[ autocmd BufNewFile,BufRead *.bicep set filetype=bicep ]])
