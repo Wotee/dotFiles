@@ -18,7 +18,7 @@ return {
 		}
 
 		local carebear = {
-			"                       Lets fucking go!",
+			"                       Let's fucking go!",
 			"                           /",
 			"                          /",
 			"         █▓▓█ ██▓▓▓██ █▓▓█",
