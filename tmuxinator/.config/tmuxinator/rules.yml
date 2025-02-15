@@ -1,0 +1,15 @@
+name: rules
+root: ~/git/rule-engine
+
+enable_pane_titles: true
+pane_title_format: "#{pane_title}"
+
+windows:
+  - rules: nvim .
+  - rules: 
+  - rules:
+      root: ~/git/rule-engine/rules/
+      layout: b147,208x73,0,0[208x62,0,0,208x10,0,63{104x10,0,63,103x10,105,63}]
+      panes:
+      - nvim
+      - dotnet watch test --project ./Rules.Specs

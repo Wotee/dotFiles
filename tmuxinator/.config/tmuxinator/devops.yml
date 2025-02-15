@@ -1,0 +1,11 @@
+name: devops
+root: ~/git/DevOpsArena
+
+enable_pane_titles: true
+pane_title_format: "#{pane_title}"
+
+windows:
+  - DevOpsArena:
+      panes:
+      - DevOpsArena:
+        - nvim

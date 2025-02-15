@@ -1,0 +1,2 @@
+"\C-i": menu-complete
+"\e[Z": menu-complete-backward

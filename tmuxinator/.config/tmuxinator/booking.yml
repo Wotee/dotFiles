@@ -1,0 +1,14 @@
+name: booking
+root: ~/git/booking-ncp
+
+enable_pane_titles: true
+pane_title_format: "#{pane_title}"
+
+windows:
+  - booking:
+      layout: b147,208x73,0,0[208x62,0,0,208x10,0,63{104x10,0,63,103x10,105,63}]
+      panes:
+      - booking:
+        - nvim
+      - booking:
+        - dotnet watch build --project ./src/AzureFunctions

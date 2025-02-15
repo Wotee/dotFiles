@@ -3,5 +3,6 @@ return {
 	version = false, -- Use main branch
 	setup = function()
 		require("mini.nvim").setup()
+		require("mini.ai").setup()
 	end,
 }
