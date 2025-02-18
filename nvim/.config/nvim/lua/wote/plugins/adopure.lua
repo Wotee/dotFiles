@@ -5,8 +5,8 @@ return {
 		"nvim-lua/telescope.nvim",
 	},
 	keys = {
-		{ "<leader>alc", "<cmd>Adopure load context<CR>", desc = "Load context" },
-		{ "<leader>alt", "<cmd>Adopure load threads<CR>", desc = "Load threads" },
+		{ "<leader>alc", "<cmd>AdoPure load context<CR>", desc = "Load context" },
+		{ "<leader>alt", "<cmd>AdoPure load threads<CR>", desc = "Load threads" },
 		{ "<leader>aoq", "<cmd>AdoPure open quickfix<CR>", desc = "Open quickfix" },
 		{ "<leader>aot", "<cmd>AdoPure open thread_picker<CR>", desc = "Thread picker" },
 		{ "<leader>aon", "<cmd>AdoPure open new_thread<CR>", desc = "Open new thread" },
