@@ -20,6 +20,7 @@
 	prd = "!f() {\
 		az repos pr create --auto-complete true --delete-source-branch true --title \"$1\" --description \"$(git log development.. --pretty=format:"%s%n%b")\" --source-branch $(git rev-parse --abbrev-ref HEAD) --target-branch development; \
 		}; f"
+  fa = fetch --all
 [core]
 	commentchar = ";"
 	hooksPath = C:/git/gitHooks/
