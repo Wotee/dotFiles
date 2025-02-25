@@ -4,10 +4,6 @@ export PATH="$PATH:/home/wote/.dotnet/tools"
 # Enable zoxide
 eval "$(zoxide init bash)"
 
-# Enable brew
-test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Enable git autocomplete
 if [ -f ~/.git-completion.bash ]; then
    source ~/.git-completion.bash
@@ -53,13 +49,20 @@ alias tmux="TERM=screen-256color-bce tmux"
 # Editor info for tmuxinator
 export EDITOR='nvim'
 
-# Enable oh my posh
-eval "$(oh-my-posh init bash --config ~/wotpuccin.omp.json)"
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 export DISABLE_AUTO_TITLE=true
 alias mux=tmuxinator
-eval "$(thefuck --alias)"
 
-echo "Ran .bash_profile"
+export PATH="$PATH:/opt/nvim/"
+
+# fnm
+FNM_PATH="/home/wote/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
+
+# Enable oh my posh
+eval "$(~/.local/bin/oh-my-posh init bash --config ~/wotpuccin.omp.json)"
