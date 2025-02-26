@@ -8,6 +8,7 @@
 	com = checkout master
 	cod = checkout development
 	cob = checkout -b
+  cobf = "!f() { git cob feature/$1; }; f"
 	pop = stash pop
 	up = !git pull --rebase --prune $@
 	amend = commit --amend --no-edit
