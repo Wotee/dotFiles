@@ -37,6 +37,8 @@ return {
 			"query",
 			"vimdoc",
 			"c",
+			"csharp",
+			"fsharp",
 		},
 		incremental_selection = {
 			enable = true,

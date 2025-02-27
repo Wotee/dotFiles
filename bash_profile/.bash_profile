@@ -63,6 +63,9 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
 fi
 
+if [ -d "$HOME/.dotnet/tools" ]; then
+  export PATH="$HOME/.dotnet/tools:$PATH"
+fi
 
 # Enable oh my posh
 eval "$(~/.local/bin/oh-my-posh init bash --config ~/wotpuccin.omp.json)"

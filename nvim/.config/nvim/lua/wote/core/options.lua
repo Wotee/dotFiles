@@ -39,6 +39,9 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 vim.cmd([[ autocmd BufNewFile,BufRead *.bicep set filetype=bicep ]])
+
+vim.cmd([[ autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp ]])
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "fsharp",
 	callback = function()
