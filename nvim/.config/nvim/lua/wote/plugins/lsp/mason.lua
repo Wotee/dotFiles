@@ -29,15 +29,11 @@ return {
 			ensure_installed = {
 				"html",
 				"cssls",
-				"tailwindcss",
-				"svelte",
 				"lua_ls",
-				"graphql",
 				"emmet_ls",
-				"prismals",
-				"pyright",
 				"fsautocomplete",
 			},
+			automatic_installation = true,
 		})
 
 		mason_tool_installer.setup({
