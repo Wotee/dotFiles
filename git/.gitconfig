@@ -22,7 +22,7 @@
 	fa = fetch --all
 [core]
 	commentchar = ";"
-	hooksPath = C:/git/gitHooks/
+	hooksPath = ~/git-hooks
   pager = delta
 [push]
 	default = current

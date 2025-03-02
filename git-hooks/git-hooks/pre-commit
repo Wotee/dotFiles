@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Check TODOs
+if git diff -p -M --cached HEAD -- | grep '^+' | grep 'TODO'; then
+    echo 'Preventing commit, because todos added'
+    exit 1
+fi
+
+# Check double comments
+if git diff -p -M --cached HEAD -- | grep '^+' | grep -E '//\s*//'; then
+    echo 'Preventing commit, because double comments'
+    exit 1
+fi
+
+# Check commented code
+if git diff -p -M --cached HEAD -- | grep '^+' | grep -E '//.*?[=|><]'; then
+    echo 'Preventing commit, because commented code added'
+    exit 1
+fi
+
+# Check formatting
+git diff --cached --name-only --diff-filter=ACM -z *.fs | xargs -0 -r fantomas --check

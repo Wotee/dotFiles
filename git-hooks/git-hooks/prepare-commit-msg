@@ -1,0 +1,21 @@
+#!/bin/sh
+
+MESSAGE=$(cat $1)
+# Strip "feature/" out of ticket
+PATTERN="feature/"
+TICKET=$(git rev-parse --abbrev-ref HEAD)
+TICKET=${TICKET#"$PATTERN"}
+
+# Only do for numeric ticket values
+if ! [ "$TICKET" -eq "$TICKET" ] 2>/dev/null
+then
+    echo "$TICKET isn't numeric, not adding ref to ticket"
+    exit 0
+fi
+
+# If message ends with ticket number, don't add anything
+if [[ $MESSAGE == *"$TICKET" ]]; then
+    exit 0
+fi
+
+printf $"$MESSAGE\r\n\r\n#$TICKET" > $1
