@@ -31,7 +31,6 @@ return {
 				"cssls",
 				"lua_ls",
 				"emmet_ls",
-				"fsautocomplete",
 			},
 			automatic_installation = true,
 		})
