@@ -1,7 +1,13 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPre", "BufNewFile" },
+	version = false,
 	build = ":TSUpdate",
+	event = { "BufReadPre", "BufNewFile" },
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+	keys = {
+		{ "<c-space>", desc = "Increment Selection" },
+		{ "<bs>", desc = "Decrement Selection", mode = "x" },
+	},
 	opts = {
 		highlight = {
 			enable = true,
