@@ -67,5 +67,8 @@ if [ -d "$HOME/.dotnet/tools" ]; then
   export PATH="$HOME/.dotnet/tools:$PATH"
 fi
 
+export PATH="$PATH:/usr/local/bin"
+alias podman='podman-remote-static-linux_amd64'
+
 # Enable oh my posh
 eval "$(~/.local/bin/oh-my-posh init bash --config ~/wotpuccin.omp.json)"
