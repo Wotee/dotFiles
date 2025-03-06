@@ -41,6 +41,7 @@ return {
 				"stylua", -- lua formatter
 				"eslint_d",
 				"bicep-lsp",
+				"contextive",
 			},
 		})
 	end,
