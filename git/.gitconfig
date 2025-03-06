@@ -23,7 +23,7 @@
 [core]
 	commentchar = ";"
 	hooksPath = ~/git-hooks
-  pager = delta
+  ; pager = delta
 [push]
 	default = current
 	autoSetupRemote = true
