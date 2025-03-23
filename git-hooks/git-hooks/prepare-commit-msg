@@ -18,4 +18,4 @@ if [[ $MESSAGE == *"$TICKET" ]]; then
     exit 0
 fi
 
-printf $"$MESSAGE\r\n\r\n#$TICKET" > $1
+printf "$MESSAGE\r\n\r\n#$TICKET" > $1
