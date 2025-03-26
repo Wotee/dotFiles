@@ -103,7 +103,8 @@ return {
 			end,
 			["bicep"] = function()
 				-- configure bicep language server
-				local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
+				-- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
+				local bicep_lsp_bin = "/home/wote/bicep/Bicep.LangServer.dll"
 				require("lspconfig").bicep.setup({
 					cmd = { "dotnet", bicep_lsp_bin },
 				})
