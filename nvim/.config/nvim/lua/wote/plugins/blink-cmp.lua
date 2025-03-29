@@ -10,6 +10,9 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
+		cmdline = {
+			enabled = false, -- testing if this causes the freezing
+		},
 	},
 	opts_extend = { "sources.default" },
 }
