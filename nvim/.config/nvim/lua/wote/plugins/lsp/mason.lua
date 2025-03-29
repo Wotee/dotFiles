@@ -31,6 +31,8 @@ return {
 				"cssls",
 				"lua_ls",
 				"emmet_ls",
+				"azure_pipelines_ls",
+				"fsautocomplete",
 			},
 			automatic_installation = true,
 		})
