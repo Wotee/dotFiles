@@ -32,7 +32,7 @@ return {
 				"lua_ls",
 				"emmet_ls",
 				"azure_pipelines_ls",
-				"fsautocomplete",
+				-- "fsautocomplete",
 			},
 			automatic_installation = true,
 		})
