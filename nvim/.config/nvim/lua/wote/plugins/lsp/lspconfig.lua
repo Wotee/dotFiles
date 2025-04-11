@@ -66,6 +66,10 @@ return {
 					[vim.diagnostic.severity.HINT] = "󰠠 ",
 				},
 			},
+			virtual_text = false,
+			virtual_lines = { current_line = true },
+			underline = true,
+			update_in_insert = false,
 		})
 
 		mason_lspconfig.setup_handlers({
