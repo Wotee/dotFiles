@@ -1,6 +1,12 @@
 return {
 	"olimorris/codecompanion.nvim",
-	opts = {},
+	opts = {
+		display = {
+			diff = {
+				provider = "mini_diff",
+			},
+		},
+	},
 	keys = {
 		{ "<leader>ct", "<cmd>CodeCompanionChat Toggle<cr>", desc = "Toggle CodeCompanion Chat" },
 	},
