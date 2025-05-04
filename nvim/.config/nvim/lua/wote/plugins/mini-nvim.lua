@@ -3,7 +3,11 @@ return {
 	version = false, -- Use main branch
 	config = function()
 		require("mini.ai").setup()
-		require("mini.jump").setup()
+		require("mini.jump").setup({
+			delay = {
+				highlight = 10000000,
+			},
+		})
 		require("mini.surround").setup()
 	end,
 }
