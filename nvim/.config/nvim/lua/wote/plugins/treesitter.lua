@@ -5,7 +5,14 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	keys = {
-		{ "<c-space>", desc = "Increment Selection" },
+		{
+			"<C-Space>",
+			desc = "Increment Selection",
+			mode = "n",
+			function()
+				require("nvim-treesitter.incremental_selection").init_selection()
+			end,
+		},
 		{ "<bs>", desc = "Decrement Selection", mode = "x" },
 	},
 	opts = {
@@ -42,8 +49,8 @@ return {
 		incremental_selection = {
 			enable = true,
 			keymaps = {
-				init_selection = "<C-space>",
-				node_incremental = "<C-space>",
+				init_selection = "<C-Space>",
+				node_incremental = "<C-Space>",
 				scope_incremental = false,
 				node_decremental = "<bs>",
 			},
