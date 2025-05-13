@@ -1,3 +1,17 @@
+vim.g.lsp_servers = {
+	lua_ls = {
+		settings = {
+			Lua = {
+				diagnostics = {
+					globals = { "vim" },
+				},
+				completion = {
+					callSnippet = "Replace",
+				},
+			},
+		},
+	},
+}
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
@@ -72,38 +86,55 @@ return {
 			update_in_insert = false,
 		})
 
-		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-			end,
-			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							-- make the language server recognize "vim" global
-							diagnostics = {
-								globals = { "vim" },
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
-					},
-				})
-			end,
-			["bicep"] = function()
-				-- configure bicep language server
-				-- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
-				local bicep_lsp_bin = "/home/wote/bicep/Bicep.LangServer.dll"
-				require("lspconfig").bicep.setup({
-					cmd = { "dotnet", bicep_lsp_bin },
-				})
-			end,
+		-- Configure and get names of lsp servers
+		local lsp_server_names = {}
+		for lsp_server_name, _ in pairs(vim.g.lsp_servers) do
+			-- Add custom config settings
+			local lsp_server_settings = vim.g.lsp_servers[lsp_server_name] or {}
+			vim.lsp.config(lsp_server_name, lsp_server_settings)
+			table.insert(lsp_server_names, lsp_server_name)
+		end
+
+		mason_lspconfig.setup({
+			ensure_installed = lsp_server_names,
+			automatic_installation = true,
 		})
+
+		local capabilities = require("blink.cmp").get_lsp_capabilities(nil, true)
+		vim.lsp.config("*", { capabilities = capabilities })
+
+		-- 	mason_lspconfig.setup_handlers({
+		-- 		-- default handler for installed servers
+		-- 		function(server_name)
+		-- 			lspconfig[server_name].setup({
+		-- 				capabilities = capabilities,
+		-- 			})
+		-- 		end,
+		-- 		["lua_ls"] = function()
+		-- 			-- configure lua server (with special settings)
+		-- 			lspconfig["lua_ls"].setup({
+		-- 				capabilities = capabilities,
+		-- 				settings = {
+		-- 					Lua = {
+		-- 						-- make the language server recognize "vim" global
+		-- 						diagnostics = {
+		-- 							globals = { "vim" },
+		-- 						},
+		-- 						completion = {
+		-- 							callSnippet = "Replace",
+		-- 						},
+		-- 					},
+		-- 				},
+		-- 			})
+		-- 		end,
+		-- 		["bicep"] = function()
+		-- 			-- configure bicep language server
+		-- 			-- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
+		-- 			local bicep_lsp_bin = "/home/wote/bicep/Bicep.LangServer.dll"
+		-- 			require("lspconfig").bicep.setup({
+		-- 				cmd = { "dotnet", bicep_lsp_bin },
+		-- 			})
+		-- 		end,
+		-- 	})
 	end,
 }
