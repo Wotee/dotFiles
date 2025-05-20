@@ -16,6 +16,8 @@ return {
 			"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
 			"                Let's fucking go!                    ",
 		}
+		-- Blue color for the carebear header
+		vim.api.nvim_set_hl(0, "MyCustomHeader", { fg = "#61afef", bold = true })
 
 		local carebear = {
 			"                       Let's fucking go!",
@@ -52,6 +54,7 @@ return {
 			"       █▓▓▓▓▓▓▓▓▓█▓▓▓▓▓▓▓▓▓█",
 		}
 		dashboard.section.header.val = carebear
+		dashboard.section.header.opts.hl = "MyCustomHeader"
 
 		-- Set menu
 		dashboard.section.buttons.val = {
