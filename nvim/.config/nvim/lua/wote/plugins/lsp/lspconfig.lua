@@ -48,17 +48,11 @@ return {
 				opts.desc = "Show LSP definitions"
 				keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definitions
 
-				opts.desc = "Show LSP implementations"
-
-				opts.desc = "Show LSP type definitions"
-
 				opts.desc = "See available code actions"
 				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
 				opts.desc = "Smart rename"
 				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-				opts.desc = "Show buffer diagnostics"
 
 				opts.desc = "Show line diagnostics"
 				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
@@ -102,39 +96,5 @@ return {
 
 		local capabilities = require("blink.cmp").get_lsp_capabilities(nil, true)
 		vim.lsp.config("*", { capabilities = capabilities })
-
-		-- 	mason_lspconfig.setup_handlers({
-		-- 		-- default handler for installed servers
-		-- 		function(server_name)
-		-- 			lspconfig[server_name].setup({
-		-- 				capabilities = capabilities,
-		-- 			})
-		-- 		end,
-		-- 		["lua_ls"] = function()
-		-- 			-- configure lua server (with special settings)
-		-- 			lspconfig["lua_ls"].setup({
-		-- 				capabilities = capabilities,
-		-- 				settings = {
-		-- 					Lua = {
-		-- 						-- make the language server recognize "vim" global
-		-- 						diagnostics = {
-		-- 							globals = { "vim" },
-		-- 						},
-		-- 						completion = {
-		-- 							callSnippet = "Replace",
-		-- 						},
-		-- 					},
-		-- 				},
-		-- 			})
-		-- 		end,
-		-- 		["bicep"] = function()
-		-- 			-- configure bicep language server
-		-- 			-- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
-		-- 			local bicep_lsp_bin = "/home/wote/bicep/Bicep.LangServer.dll"
-		-- 			require("lspconfig").bicep.setup({
-		-- 				cmd = { "dotnet", bicep_lsp_bin },
-		-- 			})
-		-- 		end,
-		-- 	})
 	end,
 }
