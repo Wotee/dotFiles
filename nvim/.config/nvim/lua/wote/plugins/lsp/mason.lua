@@ -44,6 +44,7 @@ return {
 				"eslint_d",
 				"bicep-lsp",
 				"contextive",
+				"alejandra", -- nix formatter
 			},
 		})
 	end,
