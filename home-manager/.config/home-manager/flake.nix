@@ -19,14 +19,10 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in {
     homeConfigurations = {
-      init = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [./init.nix];
-      };
       "wote@Olkkari" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home2.nix
+          ./home.nix
           ./zsh.nix
         ];
       };
