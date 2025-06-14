@@ -24,9 +24,10 @@ sudo apt full-upgrade -y
 ```
 
 ### Steps
-1. Install nix-stuff
+1. Install nix and ensure environment variables are set
 ```bash
-sh <(curl -L https://nixos.org/nix/install) --no-daemon
+sh <(curl -L https://nixos.org/nix/install) --no-daemon \
+&& . $HOME/.nix-profile/etc/profile.d/nix.sh
 ```
 2. Install dotfiles
 ```bash
