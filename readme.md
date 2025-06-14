@@ -14,7 +14,16 @@ stow -t ~ */
 ```
 
 ## Install everything to a new machine
+### Prerequisites
+```pwsh
+wsl --install -d Ubuntu-24.04
+```
+```bash
+sudo apt update
+sudo apt full-upgrade -y
+```
 
+### Steps
 1. Clone dotfiles repo
 2. Install nix-stuff
 ```bash
