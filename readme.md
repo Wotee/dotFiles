@@ -29,7 +29,7 @@ sudo apt full-upgrade -y
 sh <(curl -L https://nixos.org/nix/install) --no-daemon \
 && . $HOME/.nix-profile/etc/profile.d/nix.sh
 ```
-2. Install dotfiles
+2. Get dotfiles, install everything
 ```bash
 nix shell nixpkgs#home-manager nixpkgs#gh nixpkgs#stow \
 --extra-experimental-features nix-command \
@@ -37,20 +37,13 @@ nix shell nixpkgs#home-manager nixpkgs#gh nixpkgs#stow \
 --command sh -c "\
 cd ~ && mkdir git && cd git && gh auth login && gh repo clone Wotee/dotFiles && cd dotFiles && stow -t ~ */ && home-manager switch"
 ```
-3. install stow 
-```bash
-sudo apt-get stow
-```
-4. Stow the dotfiles
-```
-stow -t ~ */
-```
-4. Run home manager
-```
-nix run home-manager switch
-```
-5. Set zsh as default shell
+3. Set zsh as default shell
 ```bash
 echo "$HOME/.nix-profile/bin/zsh" | sudo tee -a /etc/shells >/dev/null
 chsh -s $HOME/.nix-profile/bin/zsh
+```
+4. Reopen the WSL
+5. Run home-manager again to ensure node installation works correctly
+```bash
+nix run home-manager switch
 ```
