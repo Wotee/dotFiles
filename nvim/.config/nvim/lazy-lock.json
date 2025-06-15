@@ -1,7 +1,7 @@
 {
   "Ionide-vim": { "branch": "master", "commit": "6d6583e4a23333b3bc6f7af5d2cbffed377c15a9" },
   "alpha-nvim": { "branch": "main", "commit": "a35468cd72645dbd52c0624ceead5f301c566dff" },
-  "auto-session": { "branch": "main", "commit": "cb5ddeb5f7eaaa9276b9763fa96bf8bc063b5339" },
+  "auto-session": { "branch": "main", "commit": "fffb13dcbe8731b8650e5bf1caa749a485d20556" },
   "blink.cmp": { "branch": "main", "commit": "022521a8910a5543b0251b21c9e1a1e989745796" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "fa42eb5e26819ef58884257d5ae95dd0552b9a66" },
