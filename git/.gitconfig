@@ -4,13 +4,10 @@
 [alias]
 	ec = config --global -e
 	st = status
-	activate = "!f() { az boards work-item update --id $1 --state 'Active' -o none ; }; f"
 	co = checkout
 	com = checkout master
 	cod = checkout development
 	cob = checkout -b
-	cobf = "!f() { git up; git checkout -b feature/$1 ; }; f"
-	cobfa = "!f() { git activate $1 ; git cobf $1 ; }; f"
 	pop = stash pop
 	up = !git pull --rebase --prune $@
 	amend = commit --amend --no-edit
@@ -23,7 +20,7 @@
 [core]
 	commentchar = ";"
 	hooksPath = ~/git-hooks
-  ; pager = delta
+  pager = delta
 [push]
 	default = current
 	autoSetupRemote = true
