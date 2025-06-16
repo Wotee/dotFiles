@@ -1,6 +1,6 @@
 [user]
 	name = Valtteri Tarvus
-	email = valtteri.tarvus@if.fi
+	email = valtteri.tarvus@gmail.com
 [alias]
 	ec = config --global -e
 	st = status
@@ -36,3 +36,5 @@
 	pruneTags = true
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
+[includeIf "gitdir:~/git/"]
+  path = ~/.gitconfig-work
