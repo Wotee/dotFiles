@@ -19,7 +19,7 @@
 	fa = fetch --all
 [core]
 	commentchar = ";"
-	hooksPath = ~/git-hooks
+	hooksPath = ~/git-hooks/
   pager = delta
 [push]
 	default = simple
