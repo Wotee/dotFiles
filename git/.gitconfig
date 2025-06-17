@@ -3,7 +3,7 @@
 	email = valtteri.tarvus@gmail.com
 [alias]
 	ec = config --global -e
-	st = status
+	st = status -s
 	co = checkout
 	com = checkout master
 	cod = checkout development
