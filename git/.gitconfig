@@ -54,5 +54,5 @@
 	autocorrect = prompt
 [init]
   defaultBranch = master
-[includeIf "gitdir:~/git/"]
+[includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
