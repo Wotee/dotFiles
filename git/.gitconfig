@@ -22,16 +22,37 @@
 	hooksPath = ~/git-hooks
   pager = delta
 [push]
-	default = current
+	default = simple
 	autoSetupRemote = true
+[pull]
+  rebase = true
 [rebase]
 	autosquash = true
-[help]
-	autocorrect = prompt
+  autoStash = true
+  updateRefs = true
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [fetch]
 	prune = true
 	pruneTags = true
+  all = true
 [blame]
 	ignoreRevsFile = .git-blame-ignore-revs
+[merge]
+  conflictStyle = zdiff3 # Is this what I want?
+[rerere]
+  enabled = true
+  autoUpdate = true
+[tag]
+  sort = -version:refname
+[branch]
+  sort = -committerdate
+[help]
+	autocorrect = prompt
+[init]
+  defaultBranch = master
 [includeIf "gitdir:~/git/"]
   path = ~/.gitconfig-work
