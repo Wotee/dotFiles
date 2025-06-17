@@ -41,6 +41,7 @@ in {
     pkgs.direnv
     pkgs.bruno
     pkgs.bitwarden-cli
+    pkgs.atuin # Better history
   ];
 
   # Still needed in NCP unfortunately
