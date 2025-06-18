@@ -25,7 +25,7 @@
           ./zsh.nix
         ];
       };
-      "wote@CWR-9137KAR" = home-manager.lib.homeManagerConfiguration {
+      "wote" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           ./work.nix
