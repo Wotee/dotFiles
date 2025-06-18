@@ -29,6 +29,7 @@
     pkgs.atuin # Better history
     pkgs.cargo # For alejandra (nix formatter)
     pkgs.gh
+    pkgs.pip
   ];
 
   home.sessionVariables = {
