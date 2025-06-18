@@ -47,3 +47,11 @@ chsh -s $HOME/.nix-profile/bin/zsh
 ```bash
 nix run home-manager switch
 ```
+6. Make sure correct git installation is used
+```bash
+which git
+// Should return something like /home/wote/.nix-profile/bin/git
+// and not /usr/bin/git
+// If it returns /usr/bin/git, run:
+sudo rm /usr/bin/git
+```

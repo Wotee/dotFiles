@@ -19,6 +19,7 @@ in {
   home.stateVersion = "24.11";
 
   home.packages = [
+    pkgs.git
     pkgs.neovim
     pkgs.zsh
     pkgs.unzip # Unzip for Mason LSPs and stuff
