@@ -63,15 +63,16 @@ in {
     '';
     # For some reason this did not work when installed as nix pkg, so use the script way
     credProviderInstall = lib.hm.dag.entryAfter ["nodeInstall"] ''
-      wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+      # wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+      echo "Skipping"
     '';
     bicepLangServerFuckery = lib.hm.dag.entryAfter ["credProviderInstall"] ''
       mkdir -p $HOME/bicep
       ln -s -f ${pkgs.bicep}/lib/bicep/Bicep.LangServer.dll $HOME/bicep/Bicep.LangServer.dll
     '';
-    # fsAutoComplete = lib.hm.dag.entryAfter [ "bicepLangServerFuckery" ] ''
-    #   ${combinedDotnet}/share/dotnet tool update -g fsautocomplete
-    # '';
+    fsAutoComplete = lib.hm.dag.entryAfter ["bicepLangServerFuckery"] ''
+      ${combinedDotnet}/share/dotnet/dotnet tool update -g fsautocomplete
+    '';
   };
 
   programs.home-manager.enable = true;
