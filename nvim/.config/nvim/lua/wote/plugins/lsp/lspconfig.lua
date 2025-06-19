@@ -19,6 +19,7 @@ return {
 		"saghen/blink.cmp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
+		{ "williamboman/mason.nvim" },
 	},
 	config = function(_)
 		-- import lspconfig plugin
