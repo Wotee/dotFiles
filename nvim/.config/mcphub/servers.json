@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "github.com/upstash/context7-mcp": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp"]
+    },
+    "azureDevOps": {
+      "command": "npx",
+      "args": ["-y", "@tiberriver256/mcp-server-azure-devops"],
+      "env": {
+        "AZURE_DEVOPS_ORG_URL": "https://dev.azure.com/waypoint-azure",
+        "AZURE_DEVOPS_AUTH_METHOD": "azure-cli",
+        "AZURE_DEVOPS_DEFAULT_PROJECT": "HealthHub"
+      }
+    },
+    "microsoft.docs.mcp": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://learn.microsoft.com/api/mcp"]
+    }
+  }
+}
