@@ -3,6 +3,8 @@ return {
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		"olimorris/codecompanion.nvim", -- For enabling code companion completion sources
+		{ "tpope/vim-dadbod", lazy = true },
+		{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
 	},
 	version = "1.*",
 	opts = {
@@ -11,6 +13,12 @@ return {
 		completion = { documentation = { auto_show = false } },
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "codecompanion" },
+			per_filetype = {
+				sql = { "dadbod", "buffer" },
+			},
+			providers = {
+				dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+			},
 		},
 		fuzzy = { implementation = "prefer_rust_with_warning" },
 		cmdline = {
