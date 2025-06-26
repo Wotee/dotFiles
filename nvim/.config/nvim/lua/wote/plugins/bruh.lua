@@ -1,8 +1,8 @@
 return {
 	{
-		dir = "~/git/bruh.nvim",
-		config = function()
-			require("bruh")
-		end,
+		"Wotee/bruh.nvim",
+		cmd = "Bru",
+		opts = {},
+		build = "npm install -g @usebruno/cli",
 	},
 }
