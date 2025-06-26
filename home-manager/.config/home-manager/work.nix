@@ -43,6 +43,7 @@ in {
     pkgs.bruno
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
+    pkgs.sqlcmd # Enable dadbod
   ];
 
   # Still needed in NCP unfortunately
