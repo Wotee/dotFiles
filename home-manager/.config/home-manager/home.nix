@@ -30,6 +30,7 @@
     pkgs.cargo # For alejandra (nix formatter)
     pkgs.gh
     pkgs.pip
+    pkgs.gh
   ];
 
   home.sessionVariables = {
