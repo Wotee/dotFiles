@@ -35,7 +35,7 @@ nix shell nixpkgs#home-manager nixpkgs#gh nixpkgs#stow \
 --extra-experimental-features nix-command \
 --extra-experimental-features flakes \
 --command sh -c "\
-cd ~ && mkdir git && cd git && gh auth login && gh repo clone Wotee/dotFiles && cd dotFiles && stow -t ~ */ && home-manager switch"
+cd ~ && mkdir git && cd git && gh auth login && gh repo clone Wotee/dotFiles && cd dotFiles && rm ../../.gitconfig && stow -t ~ */ && home-manager switch"
 ```
 3. Set zsh as default shell
 ```bash
