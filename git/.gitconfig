@@ -56,3 +56,9 @@
   defaultBranch = master
 [includeIf "gitdir:~/work/"]
   path = ~/.gitconfig-work
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/wote/.nix-profile/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/wote/.nix-profile/bin/gh auth git-credential
