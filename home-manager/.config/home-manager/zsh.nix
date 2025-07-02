@@ -1,4 +1,8 @@
-{ config, pkgs, ... }: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   programs = {
     zsh = {
       enable = true;
@@ -7,7 +11,7 @@
         enable = true;
       };
       shellAliases = {
-      	ls="eza -la";
+        ls = "eza -la";
       };
       initContent = "
         # Nix profile to get paths right
@@ -28,8 +32,11 @@
         # atuin
         eval \"$(atuin init zsh --disable-up-arrow)\"
 
+        # carapace
+        export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+        zstyle ':completion:*' format $'\\e[2;37mCompleting %d\\e[m'
+        source <(carapace _carapace)
 ";
     };
   };
 }
-

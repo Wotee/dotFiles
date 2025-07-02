@@ -47,6 +47,7 @@ in {
     pkgs.python3Full
     pkgs.cargo
     pkgs.gh
+    pkgs.carapace
   ];
 
   # Still needed in NCP unfortunately
