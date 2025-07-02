@@ -44,6 +44,8 @@ in {
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
     pkgs.sqlcmd # Enable dadbod
+    pkgs.python3Full
+    pkgs.cargo
   ];
 
   # Still needed in NCP unfortunately
@@ -64,8 +66,8 @@ in {
     '';
     # For some reason this did not work when installed as nix pkg, so use the script way
     credProviderInstall = lib.hm.dag.entryAfter ["nodeInstall"] ''
-      # wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
-      echo "Skipping"
+      sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
+      # echo "Skipping"
     '';
     bicepLangServerFuckery = lib.hm.dag.entryAfter ["credProviderInstall"] ''
       mkdir -p $HOME/bicep
