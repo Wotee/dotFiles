@@ -46,6 +46,7 @@ in {
     pkgs.sqlcmd # Enable dadbod
     pkgs.python3Full
     pkgs.cargo
+    pkgs.gh
   ];
 
   # Still needed in NCP unfortunately
