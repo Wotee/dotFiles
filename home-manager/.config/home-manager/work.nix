@@ -48,6 +48,7 @@ in {
     pkgs.cargo
     pkgs.gh
     pkgs.carapace
+    pkgs.jujutsu
   ];
 
   # Still needed in NCP unfortunately
