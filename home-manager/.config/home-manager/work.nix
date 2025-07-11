@@ -49,6 +49,7 @@ in {
     pkgs.gh
     pkgs.carapace
     pkgs.jujutsu
+    pkgs.direnv
   ];
 
   # Still needed in NCP unfortunately
