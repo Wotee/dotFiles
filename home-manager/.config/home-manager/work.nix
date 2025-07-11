@@ -50,6 +50,7 @@ in {
     pkgs.carapace
     pkgs.jujutsu
     pkgs.direnv
+    pkgs.asciinema
   ];
 
   # Still needed in NCP unfortunately
