@@ -47,10 +47,11 @@ in {
     pkgs.python3Full
     pkgs.cargo
     pkgs.gh
-    pkgs.carapace
+    pkgs.carapace # Multishell completion library
     pkgs.jujutsu
     pkgs.direnv
     pkgs.asciinema
+    pkgs.ripgrep
   ];
 
   # Still needed in NCP unfortunately
