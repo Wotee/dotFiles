@@ -31,6 +31,8 @@
     pkgs.gh
     pkgs.pip
     pkgs.gh
+    pkgs.carapace # Multishell completion library
+    pkgs.ripgrep
   ];
 
   home.sessionVariables = {
