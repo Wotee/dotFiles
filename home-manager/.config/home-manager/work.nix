@@ -6,8 +6,6 @@
 }: let
   combinedDotnet = with pkgs.dotnetCorePackages;
     combinePackages [
-      # Still needed in NCP unfortunately
-      sdk_6_0
       sdk_8_0
       sdk_9_0
       runtime_8_0
@@ -52,11 +50,6 @@ in {
     pkgs.direnv
     pkgs.asciinema
     pkgs.ripgrep
-  ];
-
-  # Still needed in NCP unfortunately
-  nixpkgs.config.permittedInsecurePackages = [
-    "dotnet-sdk-6.0.428"
   ];
 
   home.sessionVariables = {
