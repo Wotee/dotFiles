@@ -1,6 +1,0 @@
-[user]
-  email = valtteri.tarvus@if.fi
-[alias]
-	activate = "!f() { az boards work-item update --id $1 --state 'Active' -o none ; }; f"
-	cobf = "!f() { git up; git checkout -b feature/$1 ; }; f"
-	cobfa = "!f() { git activate $1 ; git cobf $1 ; }; f"
