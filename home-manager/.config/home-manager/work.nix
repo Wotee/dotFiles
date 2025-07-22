@@ -68,11 +68,7 @@ in {
       sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
       # echo "Skipping"
     '';
-    bicepLangServerFuckery = lib.hm.dag.entryAfter ["credProviderInstall"] ''
-      mkdir -p $HOME/bicep
-      ln -s -f ${pkgs.bicep}/lib/bicep/Bicep.LangServer.dll $HOME/bicep/Bicep.LangServer.dll
-    '';
-    fsAutoComplete = lib.hm.dag.entryAfter ["bicepLangServerFuckery"] ''
+    fsAutoComplete = lib.hm.dag.entryAfter ["credProviderInstall"] ''
       ${combinedDotnet}/share/dotnet/dotnet tool update -g fsautocomplete
     '';
   };
