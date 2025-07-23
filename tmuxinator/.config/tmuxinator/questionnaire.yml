@@ -1,5 +1,5 @@
 name: questionnaire
-root: ~/git/questionnaire-ncp
+root: ~/work/questionnaire-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

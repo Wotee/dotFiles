@@ -1,5 +1,5 @@
 name: comms
-root: ~/git/communication-ncp
+root: ~/work/communication-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

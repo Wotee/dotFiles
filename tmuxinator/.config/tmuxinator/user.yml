@@ -1,5 +1,5 @@
 name: user
-root: ~/git/user-ncp
+root: ~/work/user-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

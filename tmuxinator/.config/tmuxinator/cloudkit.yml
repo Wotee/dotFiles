@@ -1,5 +1,5 @@
 name: cloudkit
-root: ~/git/cloud-kit
+root: ~/work/cloud-kit
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

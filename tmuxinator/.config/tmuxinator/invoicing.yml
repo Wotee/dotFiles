@@ -1,5 +1,5 @@
 name: invoicing
-root: ~/git/invoicing-ncp
+root: ~/work/invoicing-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

@@ -1,5 +1,5 @@
 name: bff
-root: ~/git/bff-ncp
+root: ~/work/bff-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

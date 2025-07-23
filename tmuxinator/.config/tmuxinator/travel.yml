@@ -1,5 +1,5 @@
 name: travel
-root: ~/git/travel-claims-intake-ncp
+root: ~/work/travel-claims-intake-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

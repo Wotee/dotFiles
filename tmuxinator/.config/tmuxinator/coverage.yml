@@ -1,5 +1,5 @@
 name: coverage
-root: ~/git/coverage-ncp
+root: ~/work/coverage-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

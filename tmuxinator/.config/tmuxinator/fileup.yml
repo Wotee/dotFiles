@@ -1,5 +1,5 @@
 name: fileup
-root: ~/git/file-upload-ncp
+root: ~/work/file-upload-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

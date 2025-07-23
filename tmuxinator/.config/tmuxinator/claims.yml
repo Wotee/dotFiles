@@ -1,5 +1,5 @@
 name: claims
-root: ~/git/claims-ncp
+root: ~/work/claims-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

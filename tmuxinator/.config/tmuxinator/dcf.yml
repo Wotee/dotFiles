@@ -1,5 +1,5 @@
 name: dcf
-root: ~/git/direct-compensation-finland
+root: ~/work/direct-compensation-finland
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"

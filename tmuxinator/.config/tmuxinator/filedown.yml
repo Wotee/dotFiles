@@ -1,5 +1,5 @@
 name: filedown
-root: ~/git/file-download-ncp
+root: ~/work/file-download-ncp
 
 enable_pane_titles: true
 pane_title_format: "#{pane_title}"
