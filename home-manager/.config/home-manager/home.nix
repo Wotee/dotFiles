@@ -10,6 +10,7 @@
 
   home.packages = [
     pkgs.git
+    pkgs.tmux
     pkgs.neovim
     pkgs.dotnetCorePackages.sdk_9_0
     pkgs.bruno
