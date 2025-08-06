@@ -12,12 +12,29 @@
       };
       shellAliases = {
         ls = "eza -la";
+        mux = "tmuxinator";
       };
       initContent = "
         # Nix profile to get paths right
         if [ -e \"$HOME/.nix-profile/etc/profile.d/nix.sh\" ]; then
           . \"$HOME/.nix-profile/etc/profile.d/nix.sh\"
         fi
+
+        tmu() {
+          local session_name=\"$1\"
+          if [ -z \"$session_name\" ]; then
+            echo \"Usage: tmu <session-name>\"
+            return 1
+          fi
+
+          if tmux has-session -t \"session_name\" 2>/dev/null; then
+            echo \"Attaching to existing tmux session: $session_name\"
+            tmux attach-session -t \"$session_name\"
+          else
+            echo \"Starting new tmuxifier session: $session_name\"
+            tmuxinator \"$session_name\"
+          fi
+        }
 
         # Dotnet tools
         path+=('/home/wote/.dotnet/tools')
