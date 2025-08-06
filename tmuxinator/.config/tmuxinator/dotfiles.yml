@@ -1,0 +1,11 @@
+name: dotfiles
+root: ~/git/dotFiles/
+
+enable_pane_titles: true
+pane_title_format: "#{pane_title}"
+
+windows:
+  - dotFiles:
+      panes:
+      - dotFiles:
+        - nvim

@@ -1,0 +1,11 @@
+name: sbdcf
+root: ~/work/service-bus-models-ncp/
+
+enable_pane_titles: true
+pane_title_format: "#{pane_title}"
+
+windows:
+  - sbdcf:
+      panes:
+      - sbdcf:
+        - nvim
