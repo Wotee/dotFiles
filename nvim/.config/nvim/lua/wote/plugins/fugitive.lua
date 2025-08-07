@@ -1,3 +1,4 @@
 return {
-  "tpope/vim-fugitive",
+	"tpope/vim-fugitive",
+	"cedarbaum/fugitive-azure-devops.vim",
 }

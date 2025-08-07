@@ -50,6 +50,7 @@ in {
     pkgs.direnv
     pkgs.asciinema
     pkgs.ripgrep
+    pkgs.wslu
   ];
 
   home.sessionVariables = {
