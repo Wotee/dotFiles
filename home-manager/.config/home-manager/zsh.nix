@@ -13,6 +13,7 @@
       shellAliases = {
         ls = "eza -la";
         mux = "tmuxinator";
+        asr = "atuin scripts run";
       };
       initContent = "
         # Nix profile to get paths right
@@ -56,6 +57,9 @@
 
         # direnv
         eval \"$(direnv hook zsh)\"
+
+        # zoxide
+        eval \"$(zoxide init zsh)\"
 ";
     };
   };

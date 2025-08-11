@@ -51,6 +51,7 @@ in {
     pkgs.asciinema
     pkgs.ripgrep
     pkgs.wslu
+    pkgs.zoxide
   ];
 
   home.sessionVariables = {
