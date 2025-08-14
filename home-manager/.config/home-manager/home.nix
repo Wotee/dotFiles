@@ -33,6 +33,7 @@
     pkgs.carapace # Multishell completion library
     pkgs.ripgrep
     pkgs.direnv
+    pkgs.zathura # Nix viewengine
   ];
 
   home.sessionVariables = {

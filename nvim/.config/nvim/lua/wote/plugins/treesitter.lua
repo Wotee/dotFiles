@@ -45,6 +45,7 @@ return {
 			"c",
 			"csharp",
 			"fsharp",
+			"latex",
 		},
 		incremental_selection = {
 			enable = true,
