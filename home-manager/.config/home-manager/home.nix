@@ -34,6 +34,18 @@
     pkgs.ripgrep
     pkgs.direnv
     pkgs.zathura # Nix viewengine
+    (texlive.combine {
+    inherit (texlive) scheme-small
+      latexmk
+      xetex
+      luatex
+      amsmath
+      mathtools
+      geometry
+      babel
+      fontspec
+      unicode-math;
+    })
   ];
 
   home.sessionVariables = {
