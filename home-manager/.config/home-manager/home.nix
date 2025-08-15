@@ -3,7 +3,21 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  latex = with pkgs;
+    (texlive.combine {
+      inherit (texlive) scheme-small
+        latexmk
+        xetex
+        luatex
+        amsmath
+        mathtools
+        geometry
+        babel
+        fontspec
+        unicode-math;
+    });
+in {
   home.username = "wote";
   home.homeDirectory = "/home/wote";
   home.stateVersion = "24.11";
@@ -33,19 +47,9 @@
     pkgs.carapace # Multishell completion library
     pkgs.ripgrep
     pkgs.direnv
+    pkgs.zoxide
     pkgs.zathura # Nix viewengine
-    (texlive.combine {
-    inherit (texlive) scheme-small
-      latexmk
-      xetex
-      luatex
-      amsmath
-      mathtools
-      geometry
-      babel
-      fontspec
-      unicode-math;
-    })
+    latex
   ];
 
   home.sessionVariables = {
