@@ -53,15 +53,32 @@ in {
     pkgs.podman
     pkgs.docker-client # Docker CLI, without Docker daemon
     pkgs.docker-compose # Standalone docker compose v1
-    pkgs.docker-compose-cli-plugin # Docker compose v2 plugin
     pkgs.podman-compose # Native podman-compose
+    pkgs.lazydocker
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}/share/dotnet";
     MANPAGER = "nvim +Man!";
-    DOCKER_HOST = "unix:///run/user/${toString config.home.uid}/podman/podman.sock"
+    DOCKER_HOST = "unix:///run/user/$UID/podman/podman.sock";
+  };
+
+  systemd.user.services.podman-docker = {
+    Unit = {
+      Description = "Podman API Service (Docker-compatible)";
+      Documentation = [ "man:podman-system-service(1)" ];
+    };
+    Service = {
+      ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %t/podman";
+      ExecStart = "${pkgs.podman}/bin/podman system service --time=0 unix://%t/podman/podman.sock";
+      Restart = "on-failure";
+      RuntimeDirectory = "podman";
+      RuntimeDirectoryMode = "0700";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
   };
 
   home.activation = {
