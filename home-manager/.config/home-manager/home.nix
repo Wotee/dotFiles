@@ -50,12 +50,18 @@ in {
     pkgs.zoxide
     pkgs.zathura # Nix viewengine
     latex
+    pkgs.podman
+    pkgs.docker-client # Docker CLI, without Docker daemon
+    pkgs.docker-compose # Standalone docker compose v1
+    pkgs.docker-compose-cli-plugin # Docker compose v2 plugin
+    pkgs.podman-compose # Native podman-compose
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}/share/dotnet";
     MANPAGER = "nvim +Man!";
+    DOCKER_HOST = "unix:///run/user/${toString config.home.uid}/podman/podman.sock"
   };
 
   home.activation = {
