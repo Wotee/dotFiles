@@ -23,6 +23,11 @@ sudo apt update
 sudo apt full-upgrade -y
 ```
 
+#### For podman setup
+```bash
+sudo apt install uidmap
+```
+
 ### Steps
 1. Install nix and ensure environment variables are set
 ```bash
