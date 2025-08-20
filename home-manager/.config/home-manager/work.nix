@@ -52,6 +52,7 @@ in {
     pkgs.ripgrep
     pkgs.wslu
     pkgs.zoxide
+    pkgs.obsidian
   ];
 
   home.sessionVariables = {
