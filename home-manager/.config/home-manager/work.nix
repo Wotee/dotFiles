@@ -53,6 +53,7 @@ in {
     pkgs.wslu
     pkgs.zoxide
     pkgs.obsidian
+    pkgs.netcoredbg
   ];
 
   home.sessionVariables = {
