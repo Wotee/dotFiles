@@ -35,7 +35,6 @@ in {
     combinedDotnet
     pkgs.azure-functions-core-tools
     pkgs.bicep
-    pkgs.oh-my-posh
     pkgs.zip
     pkgs.direnv
     pkgs.bruno
@@ -62,7 +61,6 @@ in {
     MANPAGER = "nvim +Man!";
   };
 
-  # Set zsh as default shell on activation
   home.activation = {
     nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
       ${pkgs.fnm}/bin/fnm use --install-if-missing 22

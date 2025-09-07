@@ -6,9 +6,16 @@
   programs = {
     zsh = {
       enable = true;
+      enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting = {
         enable = true;
+      };
+      oh-my-zsh = {
+        enable = true;
+        plugins = ["git" "z" "fzf"];
+        theme = "wotpuccin";
+        custom = "${config.xdg.configHome}/zsh";
       };
       shellAliases = {
         ls = "eza -la";
@@ -45,7 +52,7 @@
         eval \"$(fnm env --use-on-cd)\"
 
         # Oh my posh
-        eval \"$(oh-my-posh init zsh --config '/home/wote/wotpuccin.omp.json')\"
+        # eval \"$(oh-my-posh init zsh --config '/home/wote/wotpuccin.omp.json')\"
 
         # atuin
         eval \"$(atuin init zsh --disable-up-arrow)\"
@@ -59,7 +66,7 @@
         eval \"$(direnv hook zsh)\"
 
         # zoxide
-        eval \"$(zoxide init zsh)\"
+        # eval \"$(zoxide init zsh)\"
 ";
     };
   };
