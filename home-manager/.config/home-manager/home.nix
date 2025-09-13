@@ -39,7 +39,6 @@ in {
     pkgs.zsh
     pkgs.unzip # Unzip for Mason LSPs and stuff
     pkgs.gccgo # C compiler for nvim treesitter
-    pkgs.oh-my-posh
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
     pkgs.cargo # For alejandra (nix formatter)
