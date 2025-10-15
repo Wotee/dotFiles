@@ -1,6 +1,13 @@
-return {
-	"Piotr1215/beam.nvim",
-	config = function()
-		require("beam").setup() -- Uses default prefix ','
-	end,
-}
+return {}
+-- return {
+-- 	"Piotr1215/beam.nvim",
+-- 	opts = {
+-- 		rocks = {
+-- 			enabled = false,
+-- 			hererocks = false,
+-- 		},
+-- 	},
+-- 	config = function()
+-- 		require("beam").setup() -- Uses default prefix ','
+-- 	end,
+-- }
