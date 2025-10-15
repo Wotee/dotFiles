@@ -23,12 +23,12 @@ return {
 	},
 	config = function(_)
 		-- import lspconfig plugin
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 
 		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
-		lspconfig.contextive.setup({})
+		-- lspconfig.contextive.setup({})
 
 		-- lspconfig.harper_ls.setup({
 		-- 	filetypes = { "markdown", "text" },
