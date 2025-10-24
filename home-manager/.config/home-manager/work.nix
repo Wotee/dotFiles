@@ -41,7 +41,7 @@ in {
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
     pkgs.sqlcmd # Enable dadbod
-    pkgs.python3Full
+    # pkgs.python3Full
     pkgs.cargo
     pkgs.gh
     pkgs.carapace # Multishell completion library
