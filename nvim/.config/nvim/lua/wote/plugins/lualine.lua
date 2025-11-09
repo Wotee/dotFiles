@@ -58,6 +58,8 @@ return {
 						color = { fg = "#ff9e64" },
 					},
 				},
+				-- Disable progress indicators
+				lualine_y = {},
 			},
 		})
 	end,
