@@ -26,7 +26,7 @@ in {
     pkgs.git
     pkgs.tmux
     pkgs.neovim
-    pkgs.dotnetCorePackages.sdk_9_0
+    pkgs.dotnetCorePackages.sdk_10_0
     pkgs.bruno
     pkgs.xdg-utils # Needed for Totals repos visualisation
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
