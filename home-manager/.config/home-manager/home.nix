@@ -59,7 +59,7 @@ in {
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_9_0}/share/dotnet";
+    DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
     MANPAGER = "nvim +Man!";
     DOCKER_HOST = "unix:///run/user/$UID/podman/podman.sock";
   };
