@@ -6,7 +6,7 @@
   "bruh.nvim": { "branch": "master", "commit": "27eb1b52b404b1f02dedab5406fd0d95b4aeddd9" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "catppuccin": { "branch": "main", "commit": "da33755d00e09bff2473978910168ff9ea5dc453" },
-  "codecompanion.nvim": { "branch": "main", "commit": "e40039647faf9eba740fa0656dceeb14fb91a725" },
+  "codecompanion.nvim": { "branch": "main", "commit": "d348080e39d5f184a83cdd5a549ad6037be4172b" },
   "conform.nvim": { "branch": "master", "commit": "6208aefd675939cc7c8f1a57176135974dad269f" },
   "copilot.lua": { "branch": "master", "commit": "4383e05a47493d7ff77b058c0548129eb38ec7fb" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
