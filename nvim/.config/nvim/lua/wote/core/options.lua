@@ -50,8 +50,16 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+	pattern = "fsharp",
+	command = "compiler dotnet",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = "bicep",
 	callback = function()
 		vim.bo.commentstring = "//%s"
 	end,
 })
+
+vim.g.dotnet_errors_only = true
+vim.g.dotnet_show_project_file = false
