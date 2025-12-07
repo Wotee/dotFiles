@@ -21,7 +21,7 @@ return {
 					name = "launch - netcoredbg",
 					request = "launch",
 					program = function()
-						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net9.0/", "file")
+						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net10.0/", "file")
 					end,
 				},
 			}
@@ -31,7 +31,7 @@ return {
 					name = "launch - netcoredbg",
 					request = "launch",
 					program = function()
-						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net9.0/", "file")
+						return vim.fn.input("Path to dll: ", vim.fn.getcwd() .. "/bin/Debug/net10.0/", "file")
 					end,
 				},
 				{
