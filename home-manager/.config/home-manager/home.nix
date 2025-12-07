@@ -63,12 +63,14 @@ in {
     EDITOR = "nvim";
     DOTNET_ROOT = "${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet";
     MANPAGER = "nvim +Man!";
-    DOCKER_HOST = "unix:///run/user/$UID/podman/podman.sock";
   };
 
   home.activation = {
     nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
       ${pkgs.fnm}/bin/fnm use --install-if-missing 22
+    '';
+    fsAutoComplete = lib.hm.dag.entryAfter ["nodeInstall"] ''
+      ${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet/dotnet tool update -g fsautocomplete
     '';
   };
   programs.home-manager.enable = true;
