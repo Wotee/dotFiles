@@ -1,5 +1,8 @@
 return {
-	"nsidorenco/neotest-vstest",
+	"nvim-neotest/neotest",
+	dependencies = {
+		{ "nsidorenco/neotest-vstest" },
+	},
 	keys = {
 		{ "<leader>rt", "<cmd>lua require('neotest').run.run()<CR>", desc = "Run test under cursor" },
 		{
@@ -17,16 +20,14 @@ return {
 		},
 		{ "<leader>ri", "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "Toggle test summary" },
 	},
-	init = function()
-		require("neotest").setup({
-			adapters = {
-				require("neotest-vstest"),
-			},
-			quickfix = {
-				open = function()
-					require("trouble").open({ mode = "quickfix", focus = false })
-				end,
-			},
-		})
-	end,
+	opts = {
+		adapters = {
+			require("neotest-vstest"),
+		},
+		quickfix = {
+			open = function()
+				require("trouble").open({ mode = "quickfix", focus = false })
+			end,
+		},
+	},
 }
