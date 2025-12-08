@@ -51,10 +51,10 @@ in {
     pkgs.zoxide
     pkgs.zathura # Nix viewengine
     latex
-    pkgs.podman
-    pkgs.docker-client # Docker CLI, without Docker daemon
-    pkgs.docker-compose # Standalone docker compose v1
-    pkgs.podman-compose # Native podman-compose
+    # pkgs.podman
+    # pkgs.docker-client # Docker CLI, without Docker daemon
+    # pkgs.docker-compose # Standalone docker compose v1
+    # pkgs.podman-compose # Native podman-compose
     pkgs.lazydocker
     pkgs.obsidian
   ];
