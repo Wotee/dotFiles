@@ -16,7 +16,7 @@
   outputs = {
     nixpkgs,
     home-manager,
-    adoboards-flake,
+    adoboards,
     ...
   }: let
     system = "x86_64-linux";
