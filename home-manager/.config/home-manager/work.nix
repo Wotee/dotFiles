@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  adoboards-flake,
   lib,
   ...
 }: let
@@ -54,6 +55,7 @@ in {
     pkgs.zoxide
     pkgs.obsidian
     pkgs.netcoredbg
+    adoboards-flake.packages.${pkgs.system}.default
   ];
 
   home.sessionVariables = {

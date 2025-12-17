@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    adoboards-flake = {
+      url = "github:Wotee/adoboards-tui";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,6 +16,7 @@
   outputs = {
     nixpkgs,
     home-manager,
+    adoboards-flake,
     ...
   }: let
     system = "x86_64-linux";
@@ -32,6 +37,7 @@
       };
       "wote" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
+        extraSpecialArgs = { inherit adoboards-flake; };
         modules = [
           ./work.nix
           ./zsh.nix
