@@ -56,6 +56,7 @@ in {
     pkgs.obsidian
     pkgs.netcoredbg
     adoboards.packages.${pkgs.system}.default
+    pkgs.github-copilot-cli
   ];
 
   home.sessionVariables = {
