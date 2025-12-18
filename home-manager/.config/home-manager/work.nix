@@ -55,7 +55,7 @@ in {
     pkgs.zoxide
     pkgs.obsidian
     pkgs.netcoredbg
-    adoboards.packages.${pkgs.system}.default
+    adoboards.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.github-copilot-cli
   ];
 
