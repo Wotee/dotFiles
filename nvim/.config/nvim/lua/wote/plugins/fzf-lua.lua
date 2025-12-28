@@ -8,7 +8,7 @@ return {
 		{ "<leader>fW", "<cmd>FzfLua grep_cWORD<cr>", desc = "Find WORD under cursor" },
 		{ "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Find buffers" },
 		{ "<leader>fr", "<cmd>FzfLua lsp_references<cr>", desc = "Find references" },
-		{ "<leader>fp", "<cmd>FzfLua resume<cr>", desc = "Resume work where you left off" },
+		{ "<leader>fc", "<cmd>FzfLua resume<cr>", desc = "Resume work where you left off" },
 	},
 	opts = function(_, opts)
 		local fzf = require("fzf-lua")
