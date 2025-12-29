@@ -1,7 +1,6 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = {
-		"rafamadriz/friendly-snippets",
 		"olimorris/codecompanion.nvim", -- For enabling code companion completion sources
 		{ "tpope/vim-dadbod", lazy = true },
 		{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
