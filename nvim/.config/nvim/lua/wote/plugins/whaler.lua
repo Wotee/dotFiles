@@ -10,6 +10,9 @@ return {
 		},
 		picker = "fzf_lua",
 		file_explorer = "oil",
+		fzflua_opts = {
+			prompt = "> ",
+		},
 	},
 	keys = {
 		{ "<leader>fp", "<cmd>Whaler<cr>", desc = "Switch project" },
