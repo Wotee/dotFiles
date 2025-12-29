@@ -26,7 +26,6 @@ in {
 
   home.packages = [
     pkgs.git
-    pkgs.tmux
     pkgs.neovim
     pkgs.dotnetCorePackages.sdk_10_0
     pkgs.bruno

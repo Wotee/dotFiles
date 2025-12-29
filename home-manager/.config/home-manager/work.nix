@@ -25,8 +25,6 @@ in {
     pkgs.unzip # Unzip for Mason LSPs and stuff
     pkgs.gccgo # C compiler for nvim treesitter
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
-    pkgs.tmux
-    pkgs.tmuxinator
     pkgs.jq
     pkgs.stow
     pkgs.azure-cli
