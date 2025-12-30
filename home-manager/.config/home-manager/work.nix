@@ -46,7 +46,6 @@ in {
     pkgs.gh
     pkgs.carapace # Multishell completion library
     pkgs.jujutsu
-    pkgs.direnv
     pkgs.asciinema
     pkgs.ripgrep
     pkgs.wslu
@@ -57,6 +56,11 @@ in {
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.github-copilot-cli
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";

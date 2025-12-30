@@ -47,7 +47,7 @@ in {
     pkgs.gh
     pkgs.carapace # Multishell completion library
     pkgs.ripgrep
-    pkgs.direnv
+    # pkgs.direnv
     pkgs.zoxide
     pkgs.zathura # Nix viewengine
     latex
@@ -56,6 +56,11 @@ in {
     pkgs.azure-cli
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
