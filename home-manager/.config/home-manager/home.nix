@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  opencode,
   lib,
   ...
 }: let
@@ -53,6 +54,7 @@ in {
     pkgs.podman
     pkgs.obsidian
     pkgs.azure-cli
+    opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   home.sessionVariables = {

@@ -57,11 +57,32 @@
         "type": "github"
       }
     },
+    "opencode": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1767075250,
+        "narHash": "sha256-EJOVyLM/Kj7F4ClZ4MDFKGwktFgy7m6zOn6TVCc45d0=",
+        "owner": "sst",
+        "repo": "opencode",
+        "rev": "c82ab649e2307237b480a94dbb7df6d77a8bf71a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sst",
+        "repo": "opencode",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "adoboards": "adoboards",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "opencode": "opencode"
       }
     },
     "systems": {

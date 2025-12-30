@@ -2,6 +2,7 @@
   config,
   pkgs,
   adoboards,
+  opencode,
   lib,
   ...
 }: let
@@ -41,7 +42,6 @@ in {
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
     pkgs.sqlcmd # Enable dadbod
-    # pkgs.python3Full
     pkgs.cargo
     pkgs.gh
     pkgs.carapace # Multishell completion library
@@ -54,6 +54,7 @@ in {
     pkgs.obsidian
     pkgs.netcoredbg
     adoboards.packages.${pkgs.stdenv.hostPlatform.system}.default
+    opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.github-copilot-cli
   ];
 
