@@ -63,3 +63,6 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.g.dotnet_errors_only = true
 vim.g.dotnet_show_project_file = false
+
+-- Exit terminal mode with Esc
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
