@@ -37,7 +37,6 @@ in {
     pkgs.azure-functions-core-tools
     pkgs.bicep
     pkgs.zip
-    pkgs.direnv
     pkgs.bruno
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
