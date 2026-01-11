@@ -53,7 +53,7 @@ in {
     pkgs.netcoredbg
     adoboards.packages.${pkgs.stdenv.hostPlatform.system}.default
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
-    pkgs.github-copilot-cli
+    pkgs.starship
   ];
 
   programs.direnv = {

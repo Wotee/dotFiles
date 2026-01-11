@@ -47,7 +47,6 @@ in {
     pkgs.gh
     pkgs.carapace # Multishell completion library
     pkgs.ripgrep
-    # pkgs.direnv
     pkgs.zoxide
     pkgs.zathura # Nix viewengine
     latex
@@ -55,6 +54,7 @@ in {
     pkgs.obsidian
     pkgs.azure-cli
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs.starship
   ];
 
   programs.direnv = {

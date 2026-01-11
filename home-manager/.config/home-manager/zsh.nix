@@ -11,12 +11,12 @@
       syntaxHighlighting = {
         enable = true;
       };
-      oh-my-zsh = {
-        enable = true;
-        plugins = ["git" "z" "fzf"];
-        theme = "wotpuccin";
-        custom = "${config.xdg.configHome}/zsh";
-      };
+      # oh-my-zsh = {
+      #   enable = true;
+      #   plugins = ["git" "z" "fzf"];
+      #   theme = "wotpuccin";
+      #   custom = "${config.xdg.configHome}/zsh";
+      # };
       shellAliases = {
         ls = "eza -la";
         mux = "tmuxinator";
@@ -28,31 +28,12 @@
           . \"$HOME/.nix-profile/etc/profile.d/nix.sh\"
         fi
 
-        tmu() {
-          local session_name=\"$1\"
-          if [ -z \"$session_name\" ]; then
-            echo \"Usage: tmu <session-name>\"
-            return 1
-          fi
-
-          if tmux has-session -t \"session_name\" 2>/dev/null; then
-            echo \"Attaching to existing tmux session: $session_name\"
-            tmux attach-session -t \"$session_name\"
-          else
-            echo \"Starting new tmuxifier session: $session_name\"
-            tmuxinator \"$session_name\"
-          fi
-        }
-
         # Dotnet tools
         path+=('/home/wote/.dotnet/tools')
 
         # fnm
         export PATH=/home/$USER/.fnm:$PATH
         eval \"$(fnm env --use-on-cd)\"
-
-        # Oh my posh
-        # eval \"$(oh-my-posh init zsh --config '/home/wote/wotpuccin.omp.json')\"
 
         # atuin
         eval \"$(atuin init zsh --disable-up-arrow)\"
@@ -66,7 +47,10 @@
         eval \"$(direnv hook zsh)\"
 
         # zoxide
-        # eval \"$(zoxide init zsh)\"
+        eval \"$(zoxide init zsh)\"
+
+        # starship
+        eval \"$(starship init zsh)\"
 ";
     };
   };
