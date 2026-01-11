@@ -29,7 +29,7 @@
         fi
 
         # Dotnet tools
-        path+=('/home/wote/.dotnet/tools')
+        path+=('$HOME/.dotnet/tools')
 
         # fnm
         export PATH=/home/$USER/.fnm:$PATH
