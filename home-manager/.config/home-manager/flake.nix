@@ -24,6 +24,15 @@
     opencode,
     ...
   }: let
+    username = "wote";
+    homeDirectory = "/home/${username}";
+    commonModules = [
+      {
+        home.username = username;
+        home.homeDirectory = homeDirectory;
+      }
+      ./zsh.nix
+    ];
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
@@ -31,29 +40,15 @@
     };
   in {
     homeConfigurations = {
-      "wote@Olkkari" = home-manager.lib.homeManagerConfiguration {
+      "${username}@Olkkari" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit opencode; };
-        modules = [
-          {
-              home.username = "wote";
-              home.homeDirectory = "/home/wote";
-          }
-          ./home.nix
-          ./zsh.nix
-        ];
+        modules = commonModules ++ [ ./home.nix ];
       };
-      "wote" = home-manager.lib.homeManagerConfiguration {
+      "${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit adoboards; inherit opencode; };
-        modules = [
-          {
-              home.username = "wote";
-              home.homeDirectory = "/home/wote";
-          }
-          ./work.nix
-          ./zsh.nix
-        ];
+        modules = commonModules ++ [ ./work.nix ];
       };
     };
   };
