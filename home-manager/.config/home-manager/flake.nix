@@ -35,8 +35,11 @@
         inherit pkgs;
         extraSpecialArgs = { inherit opencode; };
         modules = [
+          {
+              home.username = "wote";
+              home.homeDirectory = "/home/wote";
+          }
           ./home.nix
-          ./tmux.nix
           ./zsh.nix
         ];
       };
@@ -44,6 +47,10 @@
         inherit pkgs;
         extraSpecialArgs = { inherit adoboards; inherit opencode; };
         modules = [
+          {
+              home.username = "wote";
+              home.homeDirectory = "/home/wote";
+          }
           ./work.nix
           ./zsh.nix
         ];
