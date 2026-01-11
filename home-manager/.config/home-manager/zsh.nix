@@ -13,7 +13,6 @@
       };
       shellAliases = {
         ls = "eza -la";
-        mux = "tmuxinator";
         asr = "atuin scripts run";
       };
       initContent = "
