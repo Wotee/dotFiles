@@ -11,12 +11,6 @@
       syntaxHighlighting = {
         enable = true;
       };
-      # oh-my-zsh = {
-      #   enable = true;
-      #   plugins = ["git" "z" "fzf"];
-      #   theme = "wotpuccin";
-      #   custom = "${config.xdg.configHome}/zsh";
-      # };
       shellAliases = {
         ls = "eza -la";
         mux = "tmuxinator";
@@ -29,10 +23,10 @@
         fi
 
         # Dotnet tools
-        path+=('$HOME/.dotnet/tools')
+        export PATH=$HOME/.dotnet/tools:$PATH
 
         # fnm
-        export PATH=/home/$USER/.fnm:$PATH
+        export PATH=$HOME/.fnm:$PATH
         eval \"$(fnm env --use-on-cd)\"
 
         # atuin
