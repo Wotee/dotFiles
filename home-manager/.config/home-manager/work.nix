@@ -52,6 +52,7 @@ in {
     adoboards.packages.${pkgs.stdenv.hostPlatform.system}.default
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.starship
+    pkgs.difftastic
   ];
 
   programs.direnv = {
