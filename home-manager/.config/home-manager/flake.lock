@@ -8,11 +8,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1767853899,
-        "narHash": "sha256-J5f+jWcHOzTcMdr6ffHgasoHeGPfvTFi9BKubiVaLzM=",
+        "lastModified": 1767897776,
+        "narHash": "sha256-7LT17yHgQQsGOc3PDXz+Bn9fCu/6KxZIJSAK8G8LGfw=",
         "owner": "Wotee",
         "repo": "adoboards-tui",
-        "rev": "1f22956974654138982669dc7ece4a0f9c018a91",
+        "rev": "eca2126592db8fbe4c8612069627e078f5027459",
         "type": "github"
       },
       "original": {
