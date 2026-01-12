@@ -13,7 +13,7 @@ truncate_to_repo = false
 format = "[$path]($style) "
 
 [git_branch]
-format = "[$symbol$branch]($style) "
+format = "[$branch]($style) "
 
 [git_status]
 format = "([$ahead_behind$ahead_count$behind_count]($style) )"
