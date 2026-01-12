@@ -68,3 +68,17 @@ vim.g.dotnet_errors_only = true
 vim.g.dotnet_show_project_file = false
 
 vim.keymap.set("t", "ne", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+local function open_azure_workitem()
+	local word = vim.fn.expand("<cWORD>")
+	local id = word:match("#(%d+)")
+
+	if id then
+		local url = "https://dev.azure.com/waypoint-azure/HealthHub/_workitems/edit/" .. id
+		vim.ui.open(url)
+	else
+		vim.notify("No workitem ID found under cursor", vim.log.levels.WARN)
+	end
+end
+
+vim.keymap.set("n", "gw", open_azure_workitem, { desc = "Go to Azure Workitem" })
