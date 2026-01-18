@@ -25,25 +25,26 @@
         export PATH=$HOME/.dotnet/tools:$PATH
 
         # fnm
-        export PATH=$HOME/.fnm:$PATH
-        eval \"$(fnm env --use-on-cd)\"
+        export PATH=$HOME/.fnm/aliases/default/bin:$PATH
 
-        # atuin
-        eval \"$(atuin init zsh --disable-up-arrow)\"
+        if [[ $- == *i* ]]; then
+          # atuin
+          eval \"$(atuin init zsh --disable-up-arrow)\"
 
-        # carapace
-        export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
-        zstyle ':completion:*' format $'\\e[2;37mCompleting %d\\e[m'
-        source <(carapace _carapace)
+          # carapace
+          export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense' # optional
+          zstyle ':completion:*' format $'\\e[2;37mCompleting %d\\e[m'
+          source <(carapace _carapace)
 
-        # direnv
-        eval \"$(direnv hook zsh)\"
+          # direnv
+          eval \"$(direnv hook zsh)\"
 
-        # zoxide
-        eval \"$(zoxide init zsh)\"
+          # zoxide
+          eval \"$(zoxide init zsh)\"
 
-        # starship
-        eval \"$(starship init zsh)\"
+          # starship
+          eval \"$(starship init zsh)\"
+        fi
 ";
     };
   };
