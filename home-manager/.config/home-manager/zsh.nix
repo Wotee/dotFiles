@@ -25,7 +25,8 @@
         export PATH=$HOME/.dotnet/tools:$PATH
 
         # fnm
-        export PATH=$HOME/.fnm/aliases/default/bin:$PATH
+        export PATH=$HOME/.fnm:$PATH
+        eval \"$(fnm env --use-on-cd)\"
 
         if [[ $- == *i* ]]; then
           # atuin
