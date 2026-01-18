@@ -53,6 +53,7 @@ in {
     pkgs.azure-cli
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.starship
+    pkgs.difftastic
   ];
 
   programs.direnv = {
