@@ -53,6 +53,7 @@ in {
     opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
     pkgs.starship
     pkgs.difftastic
+    pkgs.nodejs_22
   ];
 
   programs.direnv = {
@@ -67,11 +68,11 @@ in {
   };
 
   home.activation = {
-    nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
-      ${pkgs.fnm}/bin/fnm use --install-if-missing 22
-    '';
+    # nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
+    #   ${pkgs.fnm}/bin/fnm use --install-if-missing 22
+    # '';
     # For some reason this did not work when installed as nix pkg, so use the script way
-    credProviderInstall = lib.hm.dag.entryAfter ["nodeInstall"] ''
+    credProviderInstall = lib.hm.dag.entryAfter ["installPackages"] ''
       sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
       # echo "Skipping"
     '';
