@@ -2,6 +2,15 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
+vim.filetype.add({
+	extension = {
+		fs = "fsharp",
+		fsx = "fsharp",
+		fsi = "fsharp",
+		bicep = "bicep",
+	},
+})
+
 opt.title = true
 vim.opt.titlestring = "nvim [%{fnamemodify(getcwd(), ':t')}] %t"
 
@@ -41,10 +50,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
-vim.cmd([[ autocmd BufNewFile,BufRead *.bicep set filetype=bicep ]])
-
-vim.cmd([[ autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp ]])
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "fsharp",
 	callback = function()
@@ -61,6 +66,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "bicep",
 	callback = function()
 		vim.bo.commentstring = "//%s"
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "fsharp_project",
+	callback = function()
+		vim.bo.commentstring = "<!-- %s -->"
 	end,
 })
 
