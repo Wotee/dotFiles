@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.g.dotnet_errors_only = true
 vim.g.dotnet_show_project_file = false
 
-vim.keymap.set("t", "ne", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+vim.keymap.set("t", "zz", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 local function open_azure_workitem()
 	local word = vim.fn.expand("<cWORD>")
