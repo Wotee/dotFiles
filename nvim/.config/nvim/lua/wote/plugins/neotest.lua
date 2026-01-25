@@ -24,6 +24,13 @@ return {
 		adapters = {
 			require("neotest-vstest"),
 		},
+		watch = {
+			symbol_queries = {
+				-- Empty queries to avoid parser node mismatches; watcher will rerun on changed file only
+				fsharp = "",
+				forth = "",
+			},
+		},
 		quickfix = {
 			open = function()
 				require("trouble").open({ mode = "quickfix", focus = false })
