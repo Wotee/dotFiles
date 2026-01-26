@@ -20,21 +20,29 @@ return {
 		},
 		{ "<leader>ri", "<cmd>lua require('neotest').summary.toggle()<CR>", desc = "Toggle test summary" },
 	},
-	opts = {
-		adapters = {
-			require("neotest-vstest"),
-		},
-		watch = {
-			symbol_queries = {
-				-- Empty queries to avoid parser node mismatches; watcher will rerun on changed file only
-				fsharp = "",
-				forth = "",
+	opts = function()
+		local adapters = {}
+		local ok, vstest = pcall(require, "neotest-vstest")
+		if ok then
+			table.insert(adapters, vstest)
+		else
+			vim.notify("neotest-vstest not installed; skipping adapter", vim.log.levels.WARN)
+		end
+
+		return {
+			adapters = adapters,
+			watch = {
+				symbol_queries = {
+					-- Empty queries to avoid parser node mismatches; watcher will rerun on changed file only
+					fsharp = "",
+					forth = "",
+				},
 			},
-		},
-		quickfix = {
-			open = function()
-				require("trouble").open({ mode = "quickfix", focus = false })
-			end,
-		},
-	},
+			quickfix = {
+				open = function()
+					require("trouble").open({ mode = "quickfix", focus = false })
+				end,
+			},
+		}
+	end,
 }
