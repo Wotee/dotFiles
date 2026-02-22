@@ -1,8 +1,12 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
+local toggler = require("wote.core.toggler")
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader><leader>", function()
+	toggler.togglefile("~/git/vaults/work/todo.md", { listed = false })
+end, { desc = "Toggle todos" })
 
 keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
