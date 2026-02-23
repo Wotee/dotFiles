@@ -10,7 +10,7 @@
   "conform.nvim": { "branch": "master", "commit": "e969e302bced7ffb9a0a0323629f31feb0ca35a6" },
   "copilot.lua": { "branch": "master", "commit": "5c01badd42049a63ac9e5d6c8ea85aaf66cb940f" },
   "fugitive-azure-devops.vim": { "branch": "master", "commit": "f5fc65a35a08662f8f3b1df457cc37597004f43a" },
-  "fzf-lua": { "branch": "main", "commit": "9004cbb4c065a32b690e909c49903967b45301eb" },
+  "fzf-lua": { "branch": "main", "commit": "76ddd6b56875bf4f6fd13848728207e738bb75a3" },
   "git-blame.nvim": { "branch": "main", "commit": "5c536e2d4134d064aa3f41575280bc8a2a0e03d7" },
   "gitsigns.nvim": { "branch": "main", "commit": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519" },
   "harpoon": { "branch": "harpoon2", "commit": "87b1a3506211538f460786c23f98ec63ad9af4e5" },
