@@ -4,7 +4,7 @@ local keymap = vim.keymap -- for conciseness
 local toggler = require("wote.core.toggler")
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-keymap.set("n", "<leader><leader>", function()
+keymap.set("n", "<leader>t", function()
 	toggler.togglefile("~/git/vaults/work/todo.md", { listed = false })
 end, { desc = "Toggle todos" })
 
