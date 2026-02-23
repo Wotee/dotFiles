@@ -21,5 +21,12 @@ return {
 	lazy = false,
 	keys = {
 		{ "<leader>ee", "<cmd>Oil . --float<CR>", desc = "Toggle file explorer" },
+		{
+			"<leader>ef",
+			function()
+				require("oil").open_float(vim.fn.expand("%:p:h"))
+			end,
+			desc = "Oil in buffer folder",
+		},
 	},
 }
