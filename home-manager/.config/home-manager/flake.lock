@@ -8,11 +8,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1770056663,
-        "narHash": "sha256-RtFB2nFV9ifPcc0RITZ3BOwMBJLZDDcqP4b0AKyZ8Dg=",
+        "lastModified": 1770129903,
+        "narHash": "sha256-G9oz0oMvf7gwCbFccbCVdTUZzp3cNtUyFdnyTzCvWCs=",
         "owner": "Wotee",
         "repo": "adoboards-tui",
-        "rev": "8ffcca9612e5daeeb49bc8dab7b069c5918772df",
+        "rev": "dd99cd934d35ce342949245b55fdb0888ddf397e",
         "type": "github"
       },
       "original": {
@@ -57,32 +57,11 @@
         "type": "github"
       }
     },
-    "opencode": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1770090270,
-        "narHash": "sha256-2EWqeqsb80R6TdsF2tf8od3OD/7vTvr9iDILpgihoE8=",
-        "owner": "sst",
-        "repo": "opencode",
-        "rev": "ca8c23dd717e36880d736a1df726880d38dd4366",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sst",
-        "repo": "opencode",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "adoboards": "adoboards",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "opencode": "opencode"
+        "nixpkgs": "nixpkgs"
       }
     },
     "systems": {

@@ -2,7 +2,7 @@
   config,
   pkgs,
   adoboards,
-  opencode,
+  # opencode,
   lib,
   ...
 }: let
@@ -50,10 +50,12 @@ in {
     pkgs.obsidian
     pkgs.netcoredbg
     adoboards.packages.${pkgs.stdenv.hostPlatform.system}.default
-    opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
+    pkgs.opencode
     pkgs.starship
     pkgs.difftastic
     pkgs.nodejs_22
+    pkgs.snyk
   ];
 
   programs.direnv = {
@@ -96,6 +98,7 @@ layout_git_sync() {
     EDITOR = "nvim";
     DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
     MANPAGER = "nvim +Man!";
+    SNYK_API = "https://app.eu.snyk.io/api";
   };
 
   home.activation = {
