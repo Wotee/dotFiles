@@ -93,4 +93,16 @@ local function open_azure_workitem()
 	end
 end
 
+local function open_azure_workitem_in_adoboards()
+	local word = vim.fn.expand("<cWORD>")
+	local id = word:match("#(%d+)")
+
+	if id then
+		vim.cmd("Adoboards " .. id)
+	else
+		vim.notify("No workitem ID found under cursor", vim.log.levels.WARN)
+	end
+end
+
 vim.keymap.set("n", "gw", open_azure_workitem, { desc = "Go to Azure Workitem" })
+vim.keymap.set("n", "aw", open_azure_workitem_in_adoboards, { desc = "Open workitem in Adoboards" })
