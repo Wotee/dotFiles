@@ -5,4 +5,5 @@ return {
 	keys = {
 		{ "<leader>ab", "<cmd>Adoboards<cr>", desc = "Open AdoBoards" },
 	},
+	lazy = false,
 }
