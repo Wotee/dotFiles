@@ -5,14 +5,12 @@
   "small_model": "github-copilot/claude-haiku-4-5",
   "autoupdate": "notify",
   "share": "disabled",
-  "agent": {
-    "code-reviewer": {
-      "description": "Reviews code for best practices and potential issues",
-      "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
-      "tools": {
-        // Disable file modification tools for review-only agent
-        "write": false,
-        "edit": false
+  "lsp": {
+    "fsharp": {
+      "command": ["fsautocomplete", "--background-service-enabled"],
+      "extensions": [".fs", ".fsx", ".fsi", ".fsproj"],
+      "initialization": {
+        "AutomaticWorkspaceInit": true
       }
     }
   }

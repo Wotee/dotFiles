@@ -99,6 +99,7 @@ layout_git_sync() {
     DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
     MANPAGER = "nvim +Man!";
     SNYK_API = "https://app.eu.snyk.io/api";
+    OPENCODE_EXPERIMENTAL_LSP_TOOL = "true";
   };
 
   home.activation = {
