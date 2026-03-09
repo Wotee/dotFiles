@@ -56,6 +56,7 @@ in {
     pkgs.difftastic
     pkgs.nodejs_22
     pkgs.snyk
+    pkgs.cloc
   ];
 
   programs.direnv = {
