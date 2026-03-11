@@ -21,6 +21,7 @@
 	commentchar = ";"
 	hooksPath = ~/git-hooks/
   pager = delta
+  excludefiles = ~/.customgitignore
 [push]
 	default = simple
 	autoSetupRemote = true
