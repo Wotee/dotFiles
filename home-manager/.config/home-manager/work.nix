@@ -26,7 +26,9 @@ in {
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
     pkgs.jq
     pkgs.stow
-    pkgs.azure-cli
+    (pkgs.azure-cli.withExtensions [
+      pkgs.azure-cli-extensions.azure-devops
+    ])
     pkgs.eza
     pkgs.fzf
     pkgs.lazygit
