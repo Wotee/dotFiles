@@ -46,7 +46,7 @@ in {
     pkgs.delta
     pkgs.zsh
     pkgs.unzip # Unzip for Mason LSPs and stuff
-    pkgs.gccgo # C compiler for nvim treesitter
+    pkgs.gcc # C compiler for nvim treesitter
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
     pkgs.cargo # For alejandra (nix formatter)

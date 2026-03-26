@@ -30,7 +30,7 @@ in {
     pkgs.neovim
     pkgs.zsh
     pkgs.unzip # Unzip for Mason LSPs and stuff
-    pkgs.gccgo # C compiler for nvim treesitter
+    pkgs.gcc # C compiler for nvim treesitter
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
     pkgs.jq
     pkgs.stow
@@ -66,7 +66,7 @@ in {
     pkgs.nodejs_22
     pkgs.snyk
     pkgs.cloc
-    # pkgs.rtk
+    pkgs.rtk
   ];
 
   programs.direnv = {
