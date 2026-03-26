@@ -111,6 +111,7 @@ layout_git_sync() {
     MANPAGER = "nvim +Man!";
     SNYK_API = "https://app.eu.snyk.io/api";
     OPENCODE_EXPERIMENTAL_LSP_TOOL = "true";
+    RTK_TELEMETRY_DISABLED = 1;
   };
 
   home.activation = {
