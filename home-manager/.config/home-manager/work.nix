@@ -33,6 +33,7 @@ in {
     pkgs.gcc # C compiler for nvim treesitter
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
     pkgs.jq
+    pkgs.curl
     pkgs.stow
     (pkgs.azure-cli.withExtensions [
       pkgs.azure-cli-extensions.azure-devops
@@ -42,6 +43,7 @@ in {
     pkgs.lazygit
     pkgs.delta # Syntax-highlightning pager for git
     combinedDotnet
+    pkgs.dotnet-outdated
     pkgs.azure-functions-core-tools
     pkgs.bicep
     pkgs.zip
@@ -120,7 +122,8 @@ layout_git_sync() {
     # '';
     # For some reason this did not work when installed as nix pkg, so use the script way
     credProviderInstall = lib.hm.dag.entryAfter ["installPackages"] ''
-      sh -c "$(curl -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
+      export PATH="${pkgs.curl}/bin:${pkgs.gnutar}/bin:${pkgs.gzip}/bin:$PATH"
+      sh -c "$("${pkgs.curl}/bin/curl" -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
       # echo "Skipping"
     '';
     fsAutoComplete = lib.hm.dag.entryAfter ["credProviderInstall"] ''
