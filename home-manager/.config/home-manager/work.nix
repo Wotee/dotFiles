@@ -2,10 +2,18 @@
   config,
   pkgs,
   adoboards,
-  # opencode,
+  opencode,
   lib,
   ...
 }: let
+  opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace packages/script/src/index.ts \
+        --replace-fail 'throw new Error(`This script requires bun@''${expectedBunVersionRange}' \
+                       'console.warn(`Warning: This script requires bun@''${expectedBunVersionRange}'
+    '';
+  });
+
   combinedDotnet = with pkgs.dotnetCorePackages;
     combinePackages [
       sdk_8_0
@@ -52,13 +60,13 @@ in {
     pkgs.obsidian
     pkgs.netcoredbg
     adoboards.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # opencode.packages.${pkgs.stdenv.hostPlatform.system}.default
-    pkgs.opencode
+    opencodePkg
     pkgs.starship
     pkgs.difftastic
     pkgs.nodejs_22
     pkgs.snyk
     pkgs.cloc
+    # pkgs.rtk
   ];
 
   programs.direnv = {

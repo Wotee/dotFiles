@@ -7,10 +7,7 @@
       url = "github:Wotee/adoboards-tui";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # opencode = {
-    #   url = "github:sst/opencode";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    opencode.url = "github:sst/opencode";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +18,7 @@
     nixpkgs,
     home-manager,
     adoboards,
-    # opencode,
+    opencode,
     ...
   }: let
     username = "wote";
@@ -42,13 +39,12 @@
     homeConfigurations = {
       "${username}@Olkkari" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        # extraSpecialArgs = { inherit opencode; };
+        extraSpecialArgs = { inherit opencode; };
         modules = commonModules ++ [ ./home.nix ];
       };
       "${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        # extraSpecialArgs = { inherit adoboards; inherit opencode; };
-        extraSpecialArgs = { inherit adoboards; };
+        extraSpecialArgs = { inherit adoboards opencode; };
         modules = commonModules ++ [ ./work.nix ];
       };
     };
