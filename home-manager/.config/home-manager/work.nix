@@ -123,6 +123,7 @@ layout_git_sync() {
     # For some reason this did not work when installed as nix pkg, so use the script way
     credProviderInstall = lib.hm.dag.entryAfter ["installPackages"] ''
       export PATH="${pkgs.curl}/bin:${pkgs.gnutar}/bin:${pkgs.gzip}/bin:$PATH"
+      export ARTIFACTS_CREDENTIAL_PROVIDER_NON_SC=true
       sh -c "$("${pkgs.curl}/bin/curl" -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
       # echo "Skipping"
     '';
