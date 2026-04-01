@@ -62,6 +62,8 @@ return {
 		-- 	},
 		-- })
 
+		vim.lsp.enable("contextive")
+
 		local keymap = vim.keymap -- for conciseness
 
 		vim.api.nvim_create_autocmd("LspAttach", {
