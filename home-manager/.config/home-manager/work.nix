@@ -69,6 +69,7 @@ in {
     pkgs.snyk
     pkgs.cloc
     pkgs.rtk
+    pkgs.uv
   ];
 
   programs.direnv = {
