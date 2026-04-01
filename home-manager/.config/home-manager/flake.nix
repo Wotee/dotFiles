@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     adoboards = {
       url = "github:Wotee/adoboards-tui";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +16,6 @@
 
   outputs = {
     nixpkgs,
-    nixpkgs-small,
     home-manager,
     adoboards,
     opencode,
@@ -36,14 +34,6 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [
-        (_: _: {
-          neovim = (import nixpkgs-small {
-            inherit system;
-            config.allowUnfree = true;
-          }).neovim;
-        })
-      ];
     };
   in {
     homeConfigurations = {
