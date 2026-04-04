@@ -34,6 +34,7 @@ in {
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
     pkgs.jq
     pkgs.curl
+    pkgs.cacert
     pkgs.stow
     (pkgs.azure-cli.withExtensions [
       pkgs.azure-cli-extensions.azure-devops
@@ -112,6 +113,7 @@ layout_git_sync() {
     EDITOR = "nvim";
     DOTNET_ROOT = "${combinedDotnet}/share/dotnet";
     MANPAGER = "nvim +Man!";
+    BROWSER = "wslview";
     SNYK_API = "https://app.eu.snyk.io/api";
     OPENCODE_EXPERIMENTAL_LSP_TOOL = "true";
     RTK_TELEMETRY_DISABLED = 1;
@@ -130,6 +132,10 @@ layout_git_sync() {
     '';
     fsAutoComplete = lib.hm.dag.entryAfter ["credProviderInstall"] ''
       ${combinedDotnet}/share/dotnet/dotnet tool update -g fsautocomplete
+    '';
+    tree-sitter-cli = lib.hm.dag.entryAfter ["fsAutoComplete"] ''
+      export PATH="${pkgs.cargo}/bin:${pkgs.rustc}/bin:${pkgs.gcc}/bin:$PATH"
+      "${pkgs.cargo}/bin/cargo" install --locked tree-sitter-cli
     '';
   };
 
