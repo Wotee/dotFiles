@@ -1,6 +1,8 @@
+-- return {}
 return {
 	"nvim-treesitter/nvim-treesitter",
-	version = false,
+	lazy = false,
+	-- version = false,
 	build = ":TSUpdate",
 	event = { "BufReadPre", "BufNewFile" },
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
@@ -15,14 +17,8 @@ return {
 		},
 		{ "<bs>", desc = "Decrement Selection", mode = "x" },
 	},
-	opts = {
-		highlight = {
-			enable = true,
-		},
-		-- enable indentation
-		indent = { enable = true },
-		-- ensure these language parsers are installed
-		ensure_installed = {
+	init = function()
+		require("nvim-treesitter").install({
 			"json",
 			"javascript",
 			"typescript",
@@ -43,10 +39,16 @@ return {
 			"query",
 			"vimdoc",
 			"c",
-			"csharp",
 			"fsharp",
 			"latex",
+		})
+	end,
+	opts = {
+		highlight = {
+			enable = true,
 		},
+		-- enable indentation
+		indent = { enable = true },
 		incremental_selection = {
 			enable = true,
 			keymaps = {
