@@ -96,7 +96,8 @@
         "adoboards": "adoboards",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "opencode": "opencode"
+        "opencode": "opencode",
+        "tree-sitter": "tree-sitter"
       }
     },
     "systems": {
@@ -111,6 +112,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tree-sitter": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775231205,
+        "narHash": "sha256-NTaunX8lDVLgMotTsV9qpH3diKLCp3iNF3Qms5G3j8A=",
+        "owner": "tree-sitter",
+        "repo": "tree-sitter",
+        "rev": "7c1e6861fb99437347045c8cf0807791dcc40b6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tree-sitter",
+        "repo": "tree-sitter",
         "type": "github"
       }
     },

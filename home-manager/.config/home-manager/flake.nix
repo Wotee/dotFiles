@@ -8,13 +8,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     opencode.url = "github:sst/opencode";
+    tree-sitter = {
+      url = "github:tree-sitter/tree-sitter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
+  outputs = inputs@{
     nixpkgs,
     home-manager,
     adoboards,
@@ -44,7 +48,10 @@
       };
       "${username}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit adoboards opencode; };
+        extraSpecialArgs = {
+          inherit adoboards opencode;
+          treeSitter = inputs.tree-sitter;
+        };
         modules = commonModules ++ [ ./work.nix ];
       };
     };

@@ -3,6 +3,7 @@
   pkgs,
   adoboards,
   opencode,
+  treeSitter,
   lib,
   ...
 }: let
@@ -21,6 +22,8 @@
       sdk_10_0
       runtime_8_0
     ];
+
+  treeSitterCli = treeSitter.packages.${pkgs.stdenv.hostPlatform.system}.cli;
 in {
 
   home.stateVersion = "24.11";
@@ -71,6 +74,7 @@ in {
     pkgs.cloc
     pkgs.rtk
     pkgs.uv
+    treeSitterCli
   ];
 
   programs.direnv = {
@@ -132,10 +136,6 @@ layout_git_sync() {
     '';
     fsAutoComplete = lib.hm.dag.entryAfter ["credProviderInstall"] ''
       ${combinedDotnet}/share/dotnet/dotnet tool update -g fsautocomplete
-    '';
-    tree-sitter-cli = lib.hm.dag.entryAfter ["fsAutoComplete"] ''
-      export PATH="${pkgs.cargo}/bin:${pkgs.rustc}/bin:${pkgs.gcc}/bin:$PATH"
-      "${pkgs.cargo}/bin/cargo" install --locked tree-sitter-cli
     '';
   };
 
