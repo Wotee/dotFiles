@@ -24,7 +24,12 @@
     ];
 
   treeSitterCli = treeSitter.packages.${pkgs.stdenv.hostPlatform.system}.cli;
+  databricksCli = pkgs.databricks-cli.overrideAttrs (_: {
+    doCheck = false;
+  });
 in {
+
+  nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "24.11";
 
@@ -75,6 +80,7 @@ in {
     pkgs.rtk
     pkgs.uv
     treeSitterCli
+    databricksCli
   ];
 
   programs.direnv = {
