@@ -2,7 +2,8 @@
   description = "Home Manager configuration of wote";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     adoboards = {
       url = "github:Wotee/adoboards-tui";
       inputs.nixpkgs.follows = "nixpkgs";
