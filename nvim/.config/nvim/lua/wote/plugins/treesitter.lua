@@ -2,22 +2,21 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	lazy = false,
-	-- version = false,
 	build = ":TSUpdate",
 	event = { "BufReadPre", "BufNewFile" },
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
-	keys = {
-		{
-			"<C-Space>",
-			desc = "Increment Selection",
-			mode = "n",
-			function()
-				require("nvim-treesitter.incremental_selection").init_selection()
-			end,
-		},
-		{ "<bs>", desc = "Decrement Selection", mode = "x" },
-	},
 	init = function()
+		vim.api.nvim_create_autocmd("FileType", {
+			callback = function()
+				-- Enable treesitter highlighting and disable regex syntax
+				pcall(vim.treesitter.start)
+				-- dont use treesitter-based indentation on fsharp, where ionide provides vim.bo.indentexpr
+				if vim.bo.filetype ~= "fsharp" then
+					-- Enable treesitter-based indentation
+					vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+				end
+			end,
+		})
 		require("nvim-treesitter").install({
 			"json",
 			"javascript",
@@ -26,11 +25,8 @@ return {
 			"yaml",
 			"html",
 			"css",
-			"prisma",
 			"markdown",
 			"markdown_inline",
-			"svelte",
-			"graphql",
 			"bash",
 			"lua",
 			"vim",
@@ -38,8 +34,8 @@ return {
 			"gitignore",
 			"query",
 			"vimdoc",
-			"c",
 			"fsharp",
+			"c_sharp",
 			"latex",
 		})
 	end,
@@ -49,14 +45,5 @@ return {
 		},
 		-- enable indentation
 		indent = { enable = true },
-		incremental_selection = {
-			enable = true,
-			keymaps = {
-				init_selection = "<C-Space>",
-				node_incremental = "<C-Space>",
-				scope_incremental = false,
-				node_decremental = "<bs>",
-			},
-		},
 	},
 }

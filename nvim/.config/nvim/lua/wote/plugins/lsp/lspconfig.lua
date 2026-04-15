@@ -22,47 +22,15 @@ return {
 		{ "williamboman/mason.nvim" },
 	},
 	config = function(_)
-		-- import lspconfig plugin
-		-- local lspconfig = require("lspconfig")
-
-		-- import mason_lspconfig plugin
 		local mason_lspconfig = require("mason-lspconfig")
 
-		-- lspconfig.contextive.setup({})
-
-		-- lspconfig.harper_ls.setup({
-		-- 	filetypes = { "markdown", "text" },
-		-- 	settings = {
-		-- 		["harper-ls"] = {
-		-- 			linters = {
-		-- 				SpellCheck = true,
-		-- 				SpelledNumbers = false,
-		-- 				AnA = true,
-		-- 				SentenceCapitalization = true,
-		-- 				UnclosedQuotes = true,
-		-- 				WrongQuotes = false,
-		-- 				LongSentences = true,
-		-- 				RepeatedWords = true,
-		-- 				Spaces = true,
-		-- 				Matcher = true,
-		-- 				CorrectNumberSuffix = true,
-		-- 			},
-		-- 			codeActions = {
-		-- 				ForceStable = false,
-		-- 			},
-		-- 			markdown = {
-		-- 				IgnoreLinkTitle = false,
-		-- 			},
-		-- 			diagnosticSeverity = "hint",
-		-- 			isolateEnglish = false,
-		-- 			dialect = "American",
-		-- 			maxFileLength = 120000,
-		-- 			ignoredLintsPath = {},
-		-- 		},
-		-- 	},
-		-- })
-
 		vim.lsp.enable("contextive")
+		vim.lsp.config("ionide", {
+			cmd = { "fsautocomplete" },
+			on_attach = function(client, _)
+				client.server_capabilities.semanticTokensProvider = nil
+			end,
+		})
 
 		local keymap = vim.keymap -- for conciseness
 
