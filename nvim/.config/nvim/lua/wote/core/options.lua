@@ -8,6 +8,7 @@ vim.filetype.add({
 		fsx = "fsharp",
 		fsi = "fsharp",
 		bicep = "bicep",
+		bru = "bru",
 	},
 })
 
