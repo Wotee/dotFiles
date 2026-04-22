@@ -33,7 +33,7 @@ return {
 				"emmet_ls",
 				"azure_pipelines_ls",
 				-- "ltex-ls",
-				"harper_ls",
+				-- "harper_ls",
 				-- "fsautocomplete",
 			},
 			automatic_installation = true,
