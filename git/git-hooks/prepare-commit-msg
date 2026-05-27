@@ -3,13 +3,14 @@
 FILE="$1"
 MESSAGE=$(cat "$FILE")
 
-# Extract ticket number from branch (e.g., feature/12345 → 12345)
+# Extract ticket number from branch (e.g., feature/12345 or fix/12345 → 12345)
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-TICKET=${BRANCH_NAME#feature/}
+BRANCH_SUFFIX=${BRANCH_NAME#*/}
+TICKET=${BRANCH_SUFFIX%%[!0-9]*}
 
-# Only add if numeric
-if ! [ "$TICKET" -eq "$TICKET" ] 2>/dev/null; then
-    echo "$TICKET isn't numeric, not adding ref to ticket"
+# Only add if we extracted numeric digits
+if [ -z "$TICKET" ]; then
+    echo "No numeric ticket found in branch '$BRANCH_NAME', not adding ref to ticket"
     exit 0
 fi
 
@@ -18,4 +19,3 @@ echo "$MESSAGE" | grep -qx "#$TICKET" && exit 0
 
 # Append the ticket reference
 printf "%s\n\n#%s\n" "$MESSAGE" "$TICKET" > "$FILE"
-
