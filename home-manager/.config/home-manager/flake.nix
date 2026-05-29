@@ -44,7 +44,10 @@
     homeConfigurations = {
       "${username}@Olkkari" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = { inherit opencode; };
+        extraSpecialArgs = {
+          inherit opencode;
+          treeSitter = inputs.tree-sitter;
+        };
         modules = commonModules ++ [ ./home.nix ];
       };
       "${username}" = home-manager.lib.homeManagerConfiguration {

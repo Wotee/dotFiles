@@ -1,18 +1,10 @@
 {
   config,
   pkgs,
-  opencode,
+  treeSitter,
   lib,
   ...
 }: let
-  opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
-    postPatch = (old.postPatch or "") + ''
-      substituteInPlace packages/script/src/index.ts \
-        --replace-fail 'throw new Error(`This script requires bun@''${expectedBunVersionRange}' \
-                       'console.warn(`Warning: This script requires bun@''${expectedBunVersionRange}'
-    '';
-  });
-
   latex = with pkgs; (texlive.combine {
     inherit
       (texlive)
@@ -28,6 +20,9 @@
       unicode-math
       ;
   });
+
+  treeSitterCli = treeSitter.packages.${pkgs.stdenv.hostPlatform.system}.cli;
+
 in {
   home.stateVersion = "24.11";
 
@@ -59,9 +54,10 @@ in {
     pkgs.podman
     pkgs.obsidian
     pkgs.azure-cli
-    opencodePkg
+    pkgs.opencode
     pkgs.starship
     pkgs.difftastic
+    treeSitterCli
   ];
 
   programs.direnv = {
@@ -77,7 +73,7 @@ in {
 
   home.activation = {
     nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
-      ${pkgs.fnm}/bin/fnm use --install-if-missing 22
+      ${pkgs.fnm}/bin/fnm install 22
     '';
     fsAutoComplete = lib.hm.dag.entryAfter ["nodeInstall"] ''
       ${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet/dotnet tool update -g fsautocomplete
