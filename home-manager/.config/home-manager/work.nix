@@ -81,6 +81,7 @@ in {
     pkgs.uv
     treeSitterCli
     databricksCli
+    pkgs.xdg-utils # Needed for Totals repos visualisation
   ];
 
   programs.direnv = {
