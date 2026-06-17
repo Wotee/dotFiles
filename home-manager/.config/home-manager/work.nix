@@ -46,6 +46,7 @@ in {
     pkgs.stow
     (pkgs.azure-cli.withExtensions [
       pkgs.azure-cli-extensions.azure-devops
+      pkgs.azure-cli-extensions.application-insights
     ])
     pkgs.eza
     pkgs.fzf
