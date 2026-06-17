@@ -32,6 +32,16 @@ return {
 			end,
 		})
 
+		vim.lsp.config("ado-pr-lsp", {
+			cmd = {
+				"dotnet",
+				vim.fn.expand("~/git/ado-pr-lsp/bin/Debug/net10.0/ado-pr-lsp.dll"),
+			},
+			root_markers = { ".git" },
+			single_file_support = false,
+		})
+		vim.lsp.enable("ado-pr-lsp")
+
 		local keymap = vim.keymap -- for conciseness
 
 		vim.api.nvim_create_autocmd("LspAttach", {
