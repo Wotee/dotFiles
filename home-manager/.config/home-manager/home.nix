@@ -33,6 +33,7 @@ in {
     pkgs.bruno
     pkgs.xdg-utils # Needed for Totals repos visualisation
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
+    pkgs.nodejs_22
     pkgs.stow
     pkgs.jq
     pkgs.eza

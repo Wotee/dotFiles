@@ -17,7 +17,9 @@ return {
 				end
 			end,
 		})
-		require("nvim-treesitter").install({
+	end,
+	opts = {
+		ensure_installed = {
 			"json",
 			"javascript",
 			"typescript",
@@ -37,9 +39,7 @@ return {
 			"fsharp",
 			"c_sharp",
 			"latex",
-		})
-	end,
-	opts = {
+		},
 		highlight = {
 			enable = true,
 		},
