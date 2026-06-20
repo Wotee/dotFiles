@@ -67,7 +67,6 @@ in {
     pkgs.jujutsu
     pkgs.asciinema
     pkgs.ripgrep
-    # pkgs.wslu
     pkgs.zoxide
     pkgs.obsidian
     pkgs.netcoredbg
