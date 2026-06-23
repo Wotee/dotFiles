@@ -2,7 +2,9 @@ return {
 	{
 		"Wotee/bruh.nvim",
 		cmd = "Bru",
-		opts = {},
+		opts = {
+			sandbox_developer = true,
+		},
 		build = "npm install -g @usebruno/cli",
 	},
 }
