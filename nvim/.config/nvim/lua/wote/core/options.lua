@@ -51,6 +51,20 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- turn off swapfile
 opt.swapfile = false
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*",
+	callback = function()
+		if vim.bo.binary then
+			return
+		end
+
+		local view = vim.fn.winsaveview()
+		vim.cmd([[silent! keepjumps keeppatterns %s/\r$//e]])
+		vim.fn.winrestview(view)
+		vim.bo.fileformat = "unix"
+	end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "fsharp",
 	callback = function()
