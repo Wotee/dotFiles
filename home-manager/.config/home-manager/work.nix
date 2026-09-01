@@ -7,13 +7,7 @@
   lib,
   ...
 }: let
-  opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
-    postPatch = (old.postPatch or "") + ''
-      substituteInPlace packages/script/src/index.ts \
-        --replace-fail 'throw new Error(`This script requires bun@''${expectedBunVersionRange}' \
-                       'console.warn(`Warning: This script requires bun@''${expectedBunVersionRange}'
-    '';
-  });
+  opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
   combinedDotnet = with pkgs.dotnetCorePackages;
     combinePackages [
