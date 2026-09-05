@@ -4,6 +4,16 @@
   "small_model": "github-copilot/claude-haiku-4-5",
   "autoupdate": false,
   "share": "disabled",
+  "skills": {
+    "paths": ["{env:HOME}/.local/share/opencode-azure-skills"]
+  },
+  "mcp": {
+    "azure": {
+      "type": "local",
+      "command": ["npx", "-y", "@azure/mcp@latest", "server", "start"],
+      "enabled": true
+    }
+  },
   "lsp": {
     "fsharp": {
       "command": ["fsautocomplete", "--background-service-enabled"],

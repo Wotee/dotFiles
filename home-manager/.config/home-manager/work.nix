@@ -8,6 +8,21 @@
   ...
 }: let
   opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  azureSkillsSrc = pkgs.fetchFromGitHub {
+    owner = "microsoft";
+    repo = "azure-skills";
+    rev = "v1.2.40";
+    hash = "sha256-1wFp3NUT58wE8DTzDVx5ty844S94ea45VUppgCoQXlw=";
+  };
+  azureSkillsApmManifest = pkgs.writeText "azure-skills-apm.yml" ''
+    name: work-global
+    version: 1.0.0
+    targets:
+      - opencode
+    dependencies:
+      apm:
+        - microsoft/azure-skills#v1.2.40
+  '';
 
   combinedDotnet = with pkgs.dotnetCorePackages;
     combinePackages [
@@ -124,19 +139,93 @@ layout_git_sync() {
     RTK_TELEMETRY_DISABLED = 1;
   };
 
+  home.file.".local/share/opencode-azure-skills".source = "${azureSkillsSrc}/skills";
+
   home.activation = {
     # nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
     #   ${pkgs.fnm}/bin/fnm use --install-if-missing 22
     # '';
-    # For some reason this did not work when installed as nix pkg, so use the script way
+    # For some reason this did not work when installed as nix pkg, so use the script way.
+    # Avoid re-downloading it on every switch once the plugin is already present.
     credProviderInstall = lib.hm.dag.entryAfter ["installPackages"] ''
-      export PATH="${pkgs.curl}/bin:${pkgs.gnutar}/bin:${pkgs.gzip}/bin:$PATH"
-      export ARTIFACTS_CREDENTIAL_PROVIDER_NON_SC=true
-      sh -c "$("${pkgs.curl}/bin/curl" -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
-      # echo "Skipping"
+      credProviderDir="$HOME/.nuget/plugins/netcore/CredentialProvider.Microsoft"
+
+      if [ -e "$credProviderDir/CredentialProvider.Microsoft.dll" ]; then
+        verboseEcho "Azure Artifacts credential provider already installed."
+      elif [[ -v DRY_RUN ]]; then
+        verboseEcho "Would install Azure Artifacts credential provider."
+      else
+        export PATH="${pkgs.curl}/bin:${pkgs.gnutar}/bin:${pkgs.gzip}/bin:$PATH"
+        export ARTIFACTS_CREDENTIAL_PROVIDER_NON_SC=true
+        sh -c "$("${pkgs.curl}/bin/curl" -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
+      fi
     '';
     fsAutoComplete = lib.hm.dag.entryAfter ["credProviderInstall"] ''
       ${combinedDotnet}/share/dotnet/dotnet tool update -g fsautocomplete
+    '';
+    azureSkillsCleanup = lib.hm.dag.entryAfter ["fsAutoComplete" "linkGeneration"] ''
+      if [ -e "$HOME/.kiro/settings/mcp.json" ]; then
+        if [[ -v DRY_RUN ]]; then
+          verboseEcho "Would remove Azure MCP from $HOME/.kiro/settings/mcp.json"
+        else
+          tmp_mcp_json="$(mktemp)"
+          ${pkgs.jq}/bin/jq 'del(.mcpServers.azure)' "$HOME/.kiro/settings/mcp.json" > "$tmp_mcp_json"
+
+          if ${pkgs.jq}/bin/jq -e '.mcpServers == {} or .mcpServers == null' "$tmp_mcp_json" > /dev/null; then
+            rm "$tmp_mcp_json"
+            run rm $VERBOSE_ARG "$HOME/.kiro/settings/mcp.json"
+          else
+            run mv $VERBOSE_ARG "$tmp_mcp_json" "$HOME/.kiro/settings/mcp.json"
+          fi
+        fi
+      fi
+
+      if [ -d "$HOME/.kiro/settings" ]; then
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.kiro/settings"
+      fi
+
+      if [ -d "$HOME/.kiro" ]; then
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.kiro"
+      fi
+
+      if [ -d "$HOME/.agents/skills" ]; then
+        for skill_path in ${azureSkillsSrc}/skills/*; do
+          skill_name="''${skill_path##*/}"
+          if [ -e "$HOME/.agents/skills/$skill_name" ]; then
+            run rm -rf $VERBOSE_ARG "$HOME/.agents/skills/$skill_name"
+          fi
+        done
+
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.agents/skills"
+      fi
+
+      if [ -d "$HOME/.agents" ]; then
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.agents"
+      fi
+
+      if [ -e "$HOME/.apm/apm.yml" ] && ${pkgs.diffutils}/bin/cmp -s "$HOME/.apm/apm.yml" ${azureSkillsApmManifest}; then
+        run rm $VERBOSE_ARG "$HOME/.apm/apm.yml"
+      fi
+
+      if [ -e "$HOME/.apm/apm_modules/microsoft/azure-skills" ]; then
+        run rm -rf $VERBOSE_ARG "$HOME/.apm/apm_modules/microsoft/azure-skills"
+      fi
+
+      if [ -d "$HOME/.apm/apm_modules/microsoft" ]; then
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.apm/apm_modules/microsoft"
+      fi
+
+      if [ -d "$HOME/.apm/apm_modules" ]; then
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.apm/apm_modules"
+      fi
+
+      if [ -e "$HOME/.apm/apm.lock.yaml" ] && [ ! -d "$HOME/.apm/apm_modules" ] && ${pkgs.gnugrep}/bin/grep -q 'repo_url: microsoft/azure-skills' "$HOME/.apm/apm.lock.yaml"; then
+        run rm $VERBOSE_ARG "$HOME/.apm/apm.lock.yaml"
+      fi
+
+      if [ -d "$HOME/.apm" ]; then
+        run rmdir $VERBOSE_ARG --ignore-fail-on-non-empty "$HOME/.apm"
+      fi
     '';
   };
 
