@@ -17,6 +17,7 @@
 	unfuck = !git com -- $@
 	done = !"git com; git up; git bc"
 	fa = fetch --all
+  pr = "!az repos pr create --open > /dev/null"
 [core]
 	commentchar = ";"
 	hooksPath = ~/git-hooks/
