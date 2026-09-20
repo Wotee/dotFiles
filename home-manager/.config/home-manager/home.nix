@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  opencode,
   treeSitter,
   lib,
   ...
@@ -22,6 +23,7 @@
   });
 
   treeSitterCli = treeSitter.packages.${pkgs.stdenv.hostPlatform.system}.cli;
+  opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
 in {
   home.stateVersion = "24.11";
@@ -55,7 +57,7 @@ in {
     pkgs.podman
     pkgs.obsidian
     pkgs.azure-cli
-    pkgs.opencode
+    opencodePkg
     pkgs.starship
     pkgs.difftastic
     treeSitterCli
