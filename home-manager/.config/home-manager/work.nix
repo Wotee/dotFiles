@@ -62,6 +62,7 @@ in {
     pkgs.lazygit
     pkgs.delta # Syntax-highlightning pager for git
     combinedDotnet
+    pkgs.fsautocomplete
     pkgs.dotnet-outdated
     pkgs.azure-functions-core-tools
     pkgs.bicep
@@ -160,10 +161,7 @@ layout_git_sync() {
         sh -c "$("${pkgs.curl}/bin/curl" -fsSL https://aka.ms/install-artifacts-credprovider.sh)"
       fi
     '';
-    fsAutoComplete = lib.hm.dag.entryAfter ["credProviderInstall"] ''
-      ${combinedDotnet}/share/dotnet/dotnet tool update -g fsautocomplete
-    '';
-    azureSkillsCleanup = lib.hm.dag.entryAfter ["fsAutoComplete" "linkGeneration"] ''
+    azureSkillsCleanup = lib.hm.dag.entryAfter ["credProviderInstall" "linkGeneration"] ''
       if [ -e "$HOME/.kiro/settings/mcp.json" ]; then
         if [[ -v DRY_RUN ]]; then
           verboseEcho "Would remove Azure MCP from $HOME/.kiro/settings/mcp.json"

@@ -32,6 +32,7 @@ in {
     pkgs.git
     pkgs.neovim
     pkgs.dotnetCorePackages.sdk_10_0
+    pkgs.fsautocomplete
     pkgs.bruno
     pkgs.xdg-utils # Needed for Totals repos visualisation
     pkgs.fnm # Fast node manager to install nodejs and npm for neovim plugins
@@ -77,9 +78,6 @@ in {
   home.activation = {
     nodeInstall = lib.hm.dag.entryAfter ["installPackages"] ''
       ${pkgs.fnm}/bin/fnm install 22
-    '';
-    fsAutoComplete = lib.hm.dag.entryAfter ["nodeInstall"] ''
-      ${pkgs.dotnetCorePackages.sdk_10_0}/share/dotnet/dotnet tool update -g fsautocomplete
     '';
   };
   programs.home-manager.enable = true;

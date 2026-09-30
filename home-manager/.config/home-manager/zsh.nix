@@ -21,8 +21,8 @@
           . \"$HOME/.nix-profile/etc/profile.d/nix.sh\"
         fi
 
-        # Dotnet tools
-        export PATH=$HOME/.dotnet/tools:$PATH
+        # Dotnet tools go after the Nix profile so Nix-packaged tools win when both exist.
+        export PATH=$PATH:$HOME/.dotnet/tools
 
         # fnm
         export PATH=$HOME/.fnm:$PATH
