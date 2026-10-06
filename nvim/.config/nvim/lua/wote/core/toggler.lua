@@ -1,6 +1,21 @@
 local M = {}
 
 local unlist_group = vim.api.nvim_create_augroup("TogglerUnlisted", { clear = false })
+local lsp_group = vim.api.nvim_create_augroup("TogglerNoLsp", { clear = false })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = lsp_group,
+	callback = function(ev)
+		if not vim.b[ev.buf].toggler_no_lsp then
+			return
+		end
+		vim.schedule(function()
+			if vim.api.nvim_buf_is_valid(ev.buf) and vim.b[ev.buf].toggler_no_lsp then
+				vim.lsp.buf_detach_client(ev.buf, ev.data.client_id)
+			end
+		end)
+	end,
+})
 
 local function unlist_win_buf(win)
 	if not (win and vim.api.nvim_win_is_valid(win)) then
@@ -154,6 +169,12 @@ M.togglefile = function(path, opts)
 	local bufnr = resolve_buf(path, listed)
 	if not bufnr then
 		return
+	end
+	vim.b[bufnr].toggler_no_lsp = opts.lsp == false
+	if opts.lsp == false then
+		for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+			vim.lsp.buf_detach_client(bufnr, client.id)
+		end
 	end
 
 	local winopt = vim.tbl_deep_extend("force", {}, M.config.winopt, opts.winopt or {})

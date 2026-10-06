@@ -5,7 +5,7 @@ local toggler = require("wote.core.toggler")
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>t", function()
-	toggler.togglefile("~/git/vaults/work/todo.md", { listed = false })
+	toggler.togglefile("~/git/vaults/work/todo.md", { listed = false, lsp = false })
 end, { desc = "Toggle todos" })
 
 keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
