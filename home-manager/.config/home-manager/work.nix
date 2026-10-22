@@ -37,7 +37,6 @@
     doCheck = false;
   });
 in {
-
   nixpkgs.config.allowUnfree = true;
 
   home.stateVersion = "24.11";
@@ -67,7 +66,7 @@ in {
     pkgs.azure-functions-core-tools
     pkgs.bicep
     pkgs.zip
-    pkgs.bruno
+    pkgs.bruno-cli
     pkgs.bitwarden-cli
     pkgs.atuin # Better history
     pkgs.sqlcmd # Enable dadbod
@@ -98,35 +97,35 @@ in {
     enable = true;
     nix-direnv.enable = true;
     stdlib = ''
-    # Define a custom layout for git auto-syncing
-layout_git_sync() {
-  # 1. Only run if we are in the root of the git repo
-  if [ "$PWD" != "$(git rev-parse --show-toplevel 2>/dev/null)" ]; then
-    return
-  fi
+          # Define a custom layout for git auto-syncing
+      layout_git_sync() {
+        # 1. Only run if we are in the root of the git repo
+        if [ "$PWD" != "$(git rev-parse --show-toplevel 2>/dev/null)" ]; then
+          return
+        fi
 
-  # 2. Get the current branch
-  local branch=$(git branch --show-current)
-  
-  # 3. Only act on master or main
-  if [[ "$branch" == "master" || "$branch" == "main" ]]; then
-    
-    # Perform a quiet fetch to check for updates
-    # This doesn't move your files, it just updates the remote tracking
-    git fetch --quiet origin "$branch"
-    
-    local local_hash=$(git rev-parse HEAD)
-    local remote_hash=$(git rev-parse @{u} 2>/dev/null)
+        # 2. Get the current branch
+        local branch=$(git branch --show-current)
 
-    # 4. Compare and Pull if necessary
-    if [ "$local_hash" != "$remote_hash" ] && [ -n "$remote_hash" ]; then
-      echo "🚀 direnv: Local $branch is behind. Pulling updates..."
-      git pull --rebase --autostash
-    else
-      echo "✅ direnv: $branch is up to date."
-    fi
-  fi
-}
+        # 3. Only act on master or main
+        if [[ "$branch" == "master" || "$branch" == "main" ]]; then
+
+          # Perform a quiet fetch to check for updates
+          # This doesn't move your files, it just updates the remote tracking
+          git fetch --quiet origin "$branch"
+
+          local local_hash=$(git rev-parse HEAD)
+          local remote_hash=$(git rev-parse @{u} 2>/dev/null)
+
+          # 4. Compare and Pull if necessary
+          if [ "$local_hash" != "$remote_hash" ] && [ -n "$remote_hash" ]; then
+            echo "🚀 direnv: Local $branch is behind. Pulling updates..."
+            git pull --rebase --autostash
+          else
+            echo "✅ direnv: $branch is up to date."
+          fi
+        fi
+      }
     '';
   };
 
