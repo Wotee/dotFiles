@@ -1,0 +1,15 @@
+return {}
+-- return {
+-- 	"WillEhrendreich/sagefs.nvim",
+-- 	ft = { "fsharp" },
+-- 	opts = {
+-- 		port = 37749, -- MCP server port
+-- 		dashboard_port = 37750, -- Dashboard/hot-reload port
+-- 		sagefs_path = "sagefs", -- The binary :SageFsStart runs; a full path if PATH does not see it
+-- 		auto_connect = true, -- Connect SSE on startup
+-- 		check_on_save = false, -- Type-check .fsx files on save (diagnostics via SSE)
+-- 		density = "normal", -- "minimal" | "normal" | "full"
+-- 		hint = true, -- one-time hint of the three first commands on the first F# buffer
+-- 		member_token = nil, -- a cohort member token from mint_member (below); SAGEFS_MEMBER_TOKEN works too
+-- 	},
+-- }
