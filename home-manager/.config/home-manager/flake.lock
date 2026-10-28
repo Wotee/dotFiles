@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792098797,
-        "narHash": "sha256-u4DIIZgznEGzByxXrxWCXK19VcMtTBmi/M9gZ7Jk9bM=",
+        "lastModified": 1793124281,
+        "narHash": "sha256-KdGTOgYXgMDA/ymTV10yLMt9tOjz9EmTgnTvaD+bhe4=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "640725978b99076e18e069f6e7d2959124584f8f",
+        "rev": "1e3ebeb683d055d1675d3f64e6d2b186cb2ee504",
         "type": "github"
       },
       "original": {
@@ -43,6 +43,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1793018254,
+        "narHash": "sha256-8PoNCW0I6442h+h+R2hvSlNdxqAf6TT1yk+dycToFjA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c4c49d9b94a6e75984cbb517136ca2b8566cad9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-azure-cli": {
+      "locked": {
         "lastModified": 1792116957,
         "narHash": "sha256-EjZqHKObBfIOeHZnMRVV87HB3pPq/WBkmRJWyFxmZu8=",
         "owner": "nixos",
@@ -52,8 +68,8 @@
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
+        "rev": "f20cd90e28fe0403873f473b29e42662cd86e8c4",
         "type": "github"
       }
     },
@@ -64,11 +80,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793092394,
-        "narHash": "sha256-fIko/sSjsKLbGKmOmi9RxLGIyYQWatvo/ZK0jamIS7Y=",
+        "lastModified": 1793166624,
+        "narHash": "sha256-u1CURkw2AAxgptsncneebivW3Oa+cJsFgrFePjicb4w=",
         "owner": "anomalyco",
         "repo": "opencode",
-        "rev": "86976449c40d48f2731553a024f74552593d1764",
+        "rev": "fa1260d6ca484fe0fd868aa992ad81ab85343cf3",
         "type": "github"
       },
       "original": {
@@ -82,6 +98,7 @@
         "adoboards": "adoboards",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-azure-cli": "nixpkgs-azure-cli",
         "opencode": "opencode",
         "tree-sitter": "tree-sitter"
       }
@@ -108,11 +125,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792187402,
-        "narHash": "sha256-Lf5zOhVCK2ryvhOJo+jYUk/zWeWAjLgdtGkRqFCn/jw=",
+        "lastModified": 1793166594,
+        "narHash": "sha256-fnJ7hIGvFGZ8NcxK9NBq1BpMSSeBoZtu5hXRtgfgLUw=",
         "owner": "tree-sitter",
         "repo": "tree-sitter",
-        "rev": "85061cc66804c74c5c6cc0b6a229e0f91c08636c",
+        "rev": "ad067fddf76a32c3071f8f3a31e8719d348e2737",
         "type": "github"
       },
       "original": {

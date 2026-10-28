@@ -2,12 +2,12 @@
   config,
   pkgs,
   adoboards,
-  opencode,
+  azureCli,
+  opencodePkg,
   treeSitter,
   lib,
   ...
 }: let
-  opencodePkg = opencode.packages.${pkgs.stdenv.hostPlatform.system}.default;
   azureSkillsSrc = pkgs.fetchFromGitHub {
     owner = "microsoft";
     repo = "azure-skills";
@@ -37,8 +37,6 @@
     doCheck = false;
   });
 in {
-  nixpkgs.config.allowUnfree = true;
-
   home.stateVersion = "24.11";
 
   home.packages = [
@@ -52,9 +50,9 @@ in {
     pkgs.curl
     pkgs.cacert
     pkgs.stow
-    (pkgs.azure-cli.withExtensions [
-      pkgs.azure-cli-extensions.azure-devops
-      pkgs.azure-cli-extensions.application-insights
+    (azureCli.withExtensions [
+      azureCli.extensions.azure-devops
+      azureCli.extensions.application-insights
     ])
     pkgs.eza
     pkgs.fzf
