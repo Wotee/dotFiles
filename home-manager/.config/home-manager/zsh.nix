@@ -14,6 +14,7 @@
       shellAliases = {
         ls = "eza -la";
         asr = "atuin scripts run";
+        prs = "dotnet fsi --exec $HOME/prs.fsx --";
       };
       initContent = "
         # Nix profile to get paths right
