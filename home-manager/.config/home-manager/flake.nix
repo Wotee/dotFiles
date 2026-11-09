@@ -69,7 +69,7 @@
           inherit adoboards azureCli opencodePkg;
           treeSitter = inputs.tree-sitter;
         };
-        modules = commonModules ++ [ ./work.nix ];
+        modules = commonModules ++ [ ./work.nix ./browse.nix ];
       };
     };
   };
