@@ -23,19 +23,6 @@ sudo apt update
 sudo apt full-upgrade -y
 ```
 
-#### For podman setup
-```bash
-sudo apt install uidmap
-```
-
-Docker Engine runs directly inside WSL and requires systemd. Ensure
-`/etc/wsl.conf` contains:
-
-```ini
-[boot]
-systemd=true
-```
-
 ### Steps
 1. Install nix and ensure environment variables are set
 ```bash
