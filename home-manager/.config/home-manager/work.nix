@@ -89,6 +89,7 @@ in {
     databricksCli
     pkgs.xdg-utils # Needed for Totals repos visualisation
     pkgs.lazydocker
+    pkgs.tuicr
   ];
 
   programs.direnv = {
