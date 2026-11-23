@@ -28,7 +28,7 @@
     combinePackages [
       sdk_10_0
       sdk_11_0
-      runtime_8_0
+      aspnetcore_8_0
     ];
 
   treeSitterCli = treeSitter.packages.${pkgs.stdenv.hostPlatform.system}.cli;

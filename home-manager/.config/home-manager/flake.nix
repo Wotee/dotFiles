@@ -50,7 +50,7 @@
     opencodePkg = opencodePkgBase.override {
       # The upstream flake's dependency hash is stale at this revision.
       node_modules = opencodePkgBase.node_modules.overrideAttrs (_: {
-        outputHash = "sha256-I3JJjXdMbFpG+6gmecbFpPA67b6pdGey0tTmV3ciE0c=";
+        outputHash = "sha256-ElBL9FHtH/mFpCcnSV5gzCjqnlMDBYUbB9h82Uiuz4w=";
       });
     };
   in {
