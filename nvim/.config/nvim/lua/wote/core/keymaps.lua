@@ -25,3 +25,15 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 
 -- buffer management
 keymap.set("n", "<leader>bo", "<cmd>%bd|e#|bd#<CR>", { desc = "Close other buffers" })
+
+keymap.set("n", "<leader>md", function()
+	local file = vim.fn.expand("%")
+	if file == "" then
+		print("Error: Save the file first!")
+		return
+	end
+
+	-- Open a vertical split and run leaf inside the terminal
+	vim.cmd("vsplit")
+	vim.cmd("terminal leaf -w " .. vim.fn.shellescape(file))
+end, { desc = "Open .md preview" })

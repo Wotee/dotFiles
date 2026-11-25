@@ -192,10 +192,7 @@ local function resolve_ado_thread()
 	local thread_id = get_ado_thread_id_from_cursor()
 
 	if not thread_id then
-		vim.notify(
-			"Put cursor on an ado-pr-lsp diagnostic line before calling :AdoResolveThread",
-			vim.log.levels.WARN
-		)
+		vim.notify("Put cursor on an ado-pr-lsp diagnostic line before calling :AdoResolveThread", vim.log.levels.WARN)
 		return
 	end
 
@@ -242,10 +239,7 @@ local function reply_ado_thread(message)
 	local thread_id = get_ado_thread_id_from_cursor()
 
 	if not thread_id then
-		vim.notify(
-			"Put cursor on an ado-pr-lsp diagnostic line before calling :AdoReplyThread",
-			vim.log.levels.WARN
-		)
+		vim.notify("Put cursor on an ado-pr-lsp diagnostic line before calling :AdoReplyThread", vim.log.levels.WARN)
 		return
 	end
 

@@ -90,6 +90,7 @@ in {
     pkgs.xdg-utils # Needed for Totals repos visualisation
     pkgs.lazydocker
     pkgs.tuicr
+    pkgs.leaf-markdown-viewer
   ];
 
   programs.direnv = {
