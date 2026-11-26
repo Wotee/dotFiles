@@ -5,7 +5,7 @@
 	ec = config --global -e
 	st = status -s
 	co = checkout
-	com = checkout master
+	com = "!git co $(git show-ref --verify --quiet refs/heads/main && echo main || echo master)"
 	cod = checkout development
 	cob = checkout -b
 	pop = stash pop
