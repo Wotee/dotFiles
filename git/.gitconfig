@@ -5,7 +5,8 @@
 	ec = config --global -e
 	st = status -s
 	co = checkout
-	com = "!git co $(git show-ref --verify --quiet refs/heads/main && echo main || echo master)"
+	defbranch = "!git show-ref --verify --quiet refs/heads/main && echo main || echo master"
+	com = "!git co $(git defbranch)"
 	cod = checkout development
 	cob = checkout -b
 	pop = stash pop
@@ -18,6 +19,7 @@
 	done = !"git com; git up; git bc"
 	fa = fetch --all
   pr = "!az repos pr create --open --auto-complete true > /dev/null"
+  fomo = "!b=$(git defbranch); git fetch origin $b:$b && git rebase $b"
 [core]
 	commentchar = ";"
 	hooksPath = ~/git-hooks/
